@@ -1,0 +1,13 @@
+.container {
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.002);
+  border: 3.20585px solid #ce3dd8;
+  border-radius: 20.3037px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+}

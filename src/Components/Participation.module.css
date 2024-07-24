@@ -1,0 +1,45 @@
+
+
+
+.stepsContainer {
+  background: #3d0752;
+  border-radius: 25px;
+  padding: 2rem 1rem;
+  margin-top: 2rem;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.stepGuide {
+  padding: 1rem 0;
+  background: rgba(255, 255, 255, 0.002);
+  border: 3.20585px solid #ce3dd8;
+  border-radius: 20.3037px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  width: 100%;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 1.2rem;
+  background: #ce3dd8;
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+  color: #fff;
+  padding: 1rem;
+}
+
+@media screen and (min-width: 80rem) {
+  .steps {
+    flex-direction: row;
+  }
+}

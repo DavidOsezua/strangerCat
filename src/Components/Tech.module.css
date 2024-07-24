@@ -1,0 +1,26 @@
+
+
+.wrapper{
+    display: grid;
+    gap: 1.5rem;
+}
+
+
+.card{
+display: flex;
+justify-content: center;
+color: #fff;
+gap: 2rem;
+flex-direction: column;
+background: #3D0752;
+border-radius: 25px;
+align-items: center;
+padding: 1.5rem;
+
+}
+
+@media screen and (min-width:80rem){
+    .wrapper{
+        grid-template-columns: repeat(3,1fr);
+    }
+}

@@ -1,0 +1,44 @@
+.visionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.contentContainer {
+  color: #fff;
+  font-weight: 200;
+}
+
+
+
+
+.text>*+*{
+    margin-top: 1rem;
+}
+
+.title{
+    font-size: 2rem;
+    padding-bottom: 1.5rem;
+}
+
+
+.img{
+    border-radius: 20px;
+   border: 4px solid #ce3dd8;
+}
+@media screen and (min-width: 80rem) {
+  .visionContainer {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  
+
+
+  .img{
+    width: 40%;
+    height: 80%;
+    object-fit: cover;
+  }
+}
