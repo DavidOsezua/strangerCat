@@ -70,8 +70,9 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 12px 157px;
+  padding: 1rem 0;
   gap: 16px;
+  width: 100%;
   background: #ffffff;
   color: #000;
   border-radius: 45px;

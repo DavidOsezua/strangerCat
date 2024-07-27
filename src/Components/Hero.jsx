@@ -4,6 +4,7 @@ import "../App.css";
 import Time from "./Time";
 import { Cats, HeroImage } from "../assets";
 import { visionCard } from "../Data/data";
+import { NavLink } from "react-router-dom";
 
 export const Line = () => {
   return (
@@ -80,11 +81,11 @@ const Hero = () => {
               </div>
             </div>
 
-            <div>
+            <div></div>
 
-            </div>
-
-            <button className={styles.btn}>Buy Token</button>
+            <NavLink to="login" className={styles.btn}>
+              <button>Buy Token</button>
+            </NavLink>
 
             <a href="/">How to buy</a>
           </div>
