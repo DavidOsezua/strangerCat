@@ -1,12 +1,12 @@
 import React from "react";
-import styles from './Wallet.module.css'
+import styles from "./Wallet.module.css";
 
 const Wallet = () => {
   return (
     <section className={`section`}>
       <div className={`sectionContainer pt-0  ${styles.walletContainer}`}>
         <div className={`${styles.wallet}`}>
-          <div>
+          <div className={`${styles.textContainer}`}>
             <p>My Wallet Address</p>
             <p>
               Add or Update your SOLANA wallet address here to receive your
@@ -14,13 +14,16 @@ const Wallet = () => {
             </p>
           </div>
 
-          <div>
-            <div>
-              <input className={`${styles.input}`} />
-              <p>Paste</p>
+          <div className={`${styles.emailContainer}`}>
+            <div className={`${styles.inputContainer}`}>
+              <input
+                className={`${styles.input} `}
+                placeholder="Enter your address"
+              />
+              <p className="text-[#F8A5FD]"> Paste</p>
             </div>
 
-            <button>Update</button>
+            <button className={`btn`}>Update</button>
           </div>
         </div>
 
@@ -32,7 +35,7 @@ const Wallet = () => {
             <span></span>
           </div>
 
-          <button>Buy STRANGER CAT</button>
+          <button className={`btn`}>Buy STRANGER CAT</button>
         </div>
 
         {/************************************* Second Div  ************************************/}

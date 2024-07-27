@@ -23,7 +23,7 @@ p {
   background-color: #29013f;
   padding-right: 1rem;
   padding-left: 1rem;
-    padding-top: 2rem;
+  padding-top: 2rem;
 }
 
 .sectionContainer {
@@ -32,4 +32,28 @@ p {
   max-width: 1400px;
   margin: 0 auto;
   padding-bottom: 3rem;
+}
+
+.inputContainer {
+  width: 100%;
+  background: rgba(123, 84, 141, 0.6);
+  border: 1px solid #1e1e1e;
+  border-radius: 9px;
+  color: #fff;
+  padding: 0.5rem;
+}
+
+.input {
+  outline: none;
+  color: #fff;
+  background: transparent;
+}
+
+.btn {
+  width: 148px;
+  padding: 0.6rem;
+  color: #3d0752;
+  font-weight: 600;
+  background: #c8a2d6;
+  border-radius: 9px;
 }

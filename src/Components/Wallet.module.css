@@ -18,7 +18,44 @@
   font-size: 0.8rem;
 }
 
+.wallet > * + * {
+  margin-top: 1rem;
+}
 
-.wallet > *+*{
-    margin-top: 1rem;
+.textContainer {
+  font-size: 0.7rem;
+}
+
+.textContainer > * + * {
+  margin-top: 1rem;
+}
+
+.emailContainer {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.inputContainer {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  width: 100%;
+  background: rgba(123, 84, 141, 0.6);
+  border: 1px solid #1e1e1e;
+  border-radius: 9px;
+  color: #fff;
+  padding: 0.5rem;
+}
+
+.input {
+  outline: none;
+  color: #fff;
+  background: transparent;
+}
+
+@media screen and (min-width: 80rem) {
+  .walletContainer {
+    flex-direction: row;
+  }
 }
