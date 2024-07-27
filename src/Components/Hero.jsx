@@ -83,7 +83,7 @@ const Hero = () => {
 
             <div></div>
 
-            <NavLink to="login" className={styles.btn}>
+            <NavLink to="createaccount" className={styles.btn}>
               <button>Buy Token</button>
             </NavLink>
 
