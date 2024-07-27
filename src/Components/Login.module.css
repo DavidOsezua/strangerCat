@@ -1,18 +1,18 @@
 .loginContent {
   display: flex;
   flex-direction: column;
-
+  width: 50%;
   align-items: center;
   /* text-align: center; */
   color: #fff;
   background: linear-gradient(180deg, #460a5d 0%, #2f0e3f 100%);
   border: 2.45px solid #ce3dd8;
   border-radius: 22.9993px;
-  padding: 2rem;
+  padding: 2rem 1rem;
 }
 
 .form {
-  width: 360px;
+  width: 100%;
 }
 
 .form > * + * {
@@ -67,7 +67,7 @@ a:hover {
 
 @media screen and (max-width: 1000px) {
   form {
-    width: 290px;
+    width: 100%;
   }
 
   .login-content h2 {
@@ -95,5 +95,11 @@ a:hover {
 
   .login-content {
     justify-content: center;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .loginContent {
+    width: 80%;
   }
 }

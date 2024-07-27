@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import styles from "./TabComponent.module.css";
+import PersonalInformation from "./PersonalInformation";
+import MySettings from "./MySettings";
+import UpdateLogin from "./UpdateLogin";
 
 const TabComponent = () => {
   const [activeTab, setActiveTab] = useState("Personal Information");
@@ -50,13 +53,9 @@ const TabComponent = () => {
         </button>
       </div>
 
-      {activeTab === "Personal Information" && (
-        <div className="">Personal Information</div>
-      )}
-      {activeTab === "My Settings" && <div>My Settings</div>}
-      {activeTab === "Update Login Credentials" && (
-        <div>Update Login Credentials</div>
-      )}
+      {activeTab === "Personal Information" && <PersonalInformation />}
+      {activeTab === "My Settings" && <MySettings />}
+      {activeTab === "Update Login Credentials" && <UpdateLogin />}
     </>
   );
 };

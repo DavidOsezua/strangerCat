@@ -6,7 +6,9 @@ import TabComponent from "./TabComponent";
 const ProfileDetails = () => {
   return (
     <section className={`section `}>
-      <div className={`sectionContianer py-0 text-[#fff]`}>
+      <div
+        className={`sectionContianer  text-[#fff] ${styles.profileContainer}`}
+      >
         <p>My Profile Details</p>
         <TabComponent />
 

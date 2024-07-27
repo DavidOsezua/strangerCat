@@ -47,6 +47,7 @@ p {
   outline: none;
   color: #fff;
   background: transparent;
+  width: 100%;
 }
 
 .btn {
