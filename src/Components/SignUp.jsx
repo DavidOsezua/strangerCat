@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./SignUp.module.css";
+import { NavLink } from "react-router-dom";
 
 const SignUp = () => {
   return (
@@ -41,9 +42,12 @@ const SignUp = () => {
 
         <button className={`${styles.btn}`}>Create account</button>
 
-        <p className={` text-[#fff] text-[0.6rem] pt-[1rem]`}>
-          Need to create an account? Sign up
-        </p>
+        <button className={` text-[#fff] text-[0.6rem] pt-[1rem]`}>
+          <NavLink to="/login">
+            {" "}
+            Already have an account? Sign in instead
+          </NavLink>
+        </button>
       </form>
     </div>
   );
