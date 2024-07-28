@@ -1,6 +1,7 @@
 import React from "react";
 import "../App.css";
 import styles from "./Swap.module.css";
+import { usdt } from "../assets";
 
 const Swap = () => {
   return (
@@ -14,7 +15,7 @@ const Swap = () => {
             </p>
           </div>
 
-          <div className={`${styles.inputContainer}`}>
+          <div className={`${styles.inputContainer} `}>
             <p className={styles.text}>Amount in USD</p>
             <input placeholder="0" className={`${styles.input}`} />
           </div>
@@ -24,7 +25,7 @@ const Swap = () => {
         <div>
           {/************************************* Second inner Div  ************************************/}
           <>
-            <div>
+            <div className="pb-[0.5rem]">
               <p className={styles.text}>Step 2</p>
               <p className={styles.text}>
                 Please select a currency in order to proceed
@@ -34,30 +35,30 @@ const Swap = () => {
             <div className={`${styles.secondDiv}`}>
               {/************************************* Form and Option Div  one ************************************/}
 
-              <div className="flex items-center w-full">
-                <div className={`${styles.inputContainer}`}>
+              <div className={`${styles.inputWrapper} flex  w-full`}>
+                <div
+                  className={`${styles.inputContainer} rounded-tr-[0px] rounded-br-[0px] `}
+                >
                   <p className={styles.text}>
                     Enter the amount in USD to purchase tokens
                   </p>
                   <input className={`${styles.input}`} />
                 </div>
 
-                <div>
-                  <p>USDT</p>
-                </div>
+                <button className={styles.swapBtn}><img src={usdt} className="w-[15px]"/>USDT</button>
               </div>
 
               {/************************************* Form and Option Div Two************************************/}
 
-              <div className="flex items-center w-full">
-                <div className={`${styles.inputContainer}`}>
+              <div className={`${styles.inputWrapper} flex  w-full`}>
+                <div
+                  className={`${styles.inputContainer} rounded-tr-[0px] rounded-br-[0px] `}
+                >
                   <p className={styles.text}>You receive</p>
                   <input className={`${styles.input}`} />
                 </div>
 
-                <div>
-                  <p className={`${styles.text}`}>$TRANGER CAT</p>
-                </div>
+                <p className={`${styles.swapBtn}  `}>$TRANGER CAT</p>
               </div>
             </div>
           </>

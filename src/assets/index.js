@@ -18,6 +18,7 @@ import birdEye from "./birdEye.png";
 import gecko from "./gecko.png";
 import jupter from "./jupiter.png";
 import dexTools from "./dexTools.png";
+import usdt from "./usdt.png";
 
 export {
   bar,
@@ -40,4 +41,5 @@ export {
   dexTools,
   gecko,
   birdEye,
+  usdt,
 };

@@ -12,47 +12,48 @@ const TabComponent = () => {
   };
   return (
     <>
-      <div className={`${styles.tabContainer}`}>
-        {/************************** EXCHANGE TAB ********************************/}
-        <button
-          onClick={() => {
-            handleTabSwitching("Personal Information");
-          }}
-          className={`${activeTab === "Personal Information" ? "active" : ""} ${
-            styles.btn
-          }
+      <div className={`${styles.tabSection}`}>
+        <div className={`${styles.tabContainer}`}>
+          {/************************** EXCHANGE TAB ********************************/}
+          <button
+            onClick={() => {
+              handleTabSwitching("Personal Information");
+            }}
+            className={`${
+              activeTab === "Personal Information" ? styles.active : ""
+            } ${styles.btn}
            `}
-        >
-          Personal Information
-        </button>
+          >
+            Personal Information
+          </button>
 
-        {/************************** MINING TAB  ********************************/}
-        <button
-          onClick={() => {
-            handleTabSwitching("My Settings");
-          }}
-          className={`${activeTab === "My Settings" ? "active" : ""}  ${
-            styles.btn
-          }
+          {/************************** MINING TAB  ********************************/}
+          <button
+            onClick={() => {
+              handleTabSwitching("My Settings");
+            }}
+            className={`${activeTab === "My Settings" ? styles.active : ""}  ${
+              styles.btn
+            }
            `}
-        >
-          My Settings
-        </button>
+          >
+            My Settings
+          </button>
 
-        {/************************** FRIENDS TAB ********************************/}
-        <button
-          onClick={() => {
-            handleTabSwitching("Update Login Credentials");
-          }}
-          className={`${
-            activeTab === "Update Login Credentials" ? "active" : ""
-          } ${styles.btn}
+          {/************************** FRIENDS TAB ********************************/}
+          <button
+            onClick={() => {
+              handleTabSwitching("Update Login Credentials");
+            }}
+            className={`${
+              activeTab === "Update Login Credentials" ? styles.active : ""
+            } ${styles.btn}
            `}
-        >
-          Update Login Credentials
-        </button>
+          >
+            Update Login Credentials
+          </button>
+        </div>
       </div>
-
       {activeTab === "Personal Information" && <PersonalInformation />}
       {activeTab === "My Settings" && <MySettings />}
       {activeTab === "Update Login Credentials" && <UpdateLogin />}
