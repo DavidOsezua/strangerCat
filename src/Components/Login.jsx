@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Login.module.css";
 import "../App.css";
+import { NavLink } from "react-router-dom";
 
 const Login = () => {
   return (
@@ -40,9 +41,9 @@ const Login = () => {
           <p>Forgot Password</p>
         </div>
 
-        <p className={` text-[#fff] text-[0.6rem] pt-[1rem]`}>
-          Need to create an account? Sign up
-        </p>
+        <button className={` text-[#fff] text-[0.6rem] pt-[1rem]`}>
+          <NavLink to="/createaccount">Need to create an account? Sign up</NavLink>
+        </button>
       </form>
     </div>
   );
