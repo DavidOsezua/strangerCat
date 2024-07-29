@@ -27,7 +27,7 @@ import Dropdown from "./Dropdown";
 //   );
 // };
 
-const Swap = () => {
+const Swap = ({modalHandler}) => {
   const [dropdown, setDropDown] = useState(false);
   const [tokenState, setTokenState] = useState([usdt, "USDT"]);
 
@@ -118,7 +118,7 @@ const Swap = () => {
           </>
         </div>
 
-        <button className={`${styles.btn}`}>BUY $STRANGER CAT NOW</button>
+        <button className={`${styles.btn}`} onClick={modalHandler}>BUY $STRANGER CAT NOW</button>
       </div>
     </section>
   );

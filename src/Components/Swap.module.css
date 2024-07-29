@@ -77,13 +77,14 @@
   color: #3d0752;
   display: flex;
   justify-content: center;
-  gap: 7px;
+  gap: 5px;
+  /* padding: 0rem 0.5rem; */
   align-items: center;
   border-radius: 10px;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
   background: #c8a2d6;
-  width: 7rem;
+  width: 9rem;
   font-size: 0.7rem;
   font-weight: 700;
 }

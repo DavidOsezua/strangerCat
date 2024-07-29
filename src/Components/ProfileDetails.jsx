@@ -7,7 +7,7 @@ const ProfileDetails = () => {
   return (
     <section className={`section  py-[0px]`}>
       <div
-        className={`sectionContianer  text-[#fff] ${styles.profileContainer}`}
+        className={`sectionContainer  text-[#fff] ${styles.profileContainer}`}
       >
         <p>My Profile Details</p>
         <TabComponent />
