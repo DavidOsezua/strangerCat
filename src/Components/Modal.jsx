@@ -61,7 +61,7 @@ const Modal = ({ modalHandler }) => {
               Copy address
             </button>
             <button className={`${styles.btn} bg-[#5F3873] `}>
-              Update Profile
+              Confirm payment
             </button>
           </div>
         </div>

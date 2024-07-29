@@ -5,13 +5,14 @@
 
 .tableStyle {
   border-collapse: collapse;
-  min-width: 100%;
+  width: 1350px;
   color: #fff;
+
 }
 
 .thStyle {
   font-size: 0.8rem;
-  background:#7B548D;
+  background: #7b548d;
   font-weight: bold;
   padding: 8px 16px;
   text-align: left;
@@ -25,15 +26,15 @@
 
 /* Media query for responsiveness */
 
-/* @media (max-width: 390px) {
+/* @media (max-width: 690px) {
   .tableStyle {
-    font-size: 10px;
+    font-size: 0.5rem;
   }
 
   .tdStyle,
   .thStyle {
     padding: 6px 4px;
-    font-size: 8.8px;
+    font-size: 0.5rem;
   }
 
   .image {
@@ -43,4 +44,4 @@
   .UserImage {
     width: 1.3rem;
   }
-} */
+}  */

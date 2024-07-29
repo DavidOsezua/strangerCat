@@ -2,7 +2,16 @@
 import { data } from "../Data/data";
 import styles from "./Table.module.css";
 
-const HEADERS = ["Game", "User", "Action", "Amount", "Time"];
+const HEADERS = [
+  "Transaction Number",
+  "Tokens",
+  "Amount in Crypto Currency",
+  "Amount in US dollars",
+  "To Wallet Address",
+  "Status",
+  "Type",
+  "Action",
+];
 
 const Table = () => {
   return (
@@ -58,9 +67,18 @@ const Table = () => {
                 </div>
               </td>
 
-              <td className={`${styles.tdStyle} text-[#FF6665]`}>
+          <td className={`${styles.tdStyle} text-[#FF6665]`}>
                 {item.Time}
-              </td>
+              </td>    
+          <td className={`${styles.tdStyle} text-[#FF6665]`}>
+                {item.status}
+              </td>    
+          <td className={`${styles.tdStyle} text-[#FF6665]`}>
+                {item.type}
+              </td>    
+          <td className={`${styles.tdStyle} text-[#FF6665]`}>
+                {item.action}
+              </td>    
             </tr>
           ))}
         </tbody>
