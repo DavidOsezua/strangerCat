@@ -1,0 +1,8 @@
+.transactionContainer {
+  overflow-x: scroll;
+  width: 100%;
+}
+
+.transactionContainer::-webkit-scrollbar{
+  display: none;
+}

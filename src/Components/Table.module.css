@@ -1,6 +1,6 @@
 /* Table.css */
 .table-responsive {
-  overflow-x: auto;
+  /* overflow-x: scroll; */
 }
 
 .tableStyle {
@@ -10,7 +10,8 @@
 }
 
 .thStyle {
-  background: #3c0054;
+  font-size: 0.8rem;
+  background:#7B548D;
   font-weight: bold;
   padding: 8px 16px;
   text-align: left;
@@ -23,33 +24,16 @@
 }
 
 /* Media query for responsiveness */
-@media (max-width: 600px) {
+
+/* @media (max-width: 390px) {
   .tableStyle {
-    font-size: 10px; /* Adjust font size for smaller screens */
+    font-size: 10px;
   }
 
   .tdStyle,
   .thStyle {
-    padding: 2px 4px; /* Reduce padding for smaller screens */
-  }
-
-  .image {
-    width: 1rem;
-  }
-
-  .UserImage {
-    width: 1.4rem;
-  }
-}
-@media (max-width: 430px) {
-  .tableStyle {
-    font-size: 12px; /* Adjust font size for smaller screens */
-  }
-
-  .tdStyle,
-  .thStyle {
-    padding: 6px 4px; /* Reduce padding for smaller screens */
-    font-size: 12px; /* Adjust font size for smaller screens */
+    padding: 6px 4px;
+    font-size: 8.8px;
   }
 
   .image {
@@ -59,24 +43,4 @@
   .UserImage {
     width: 1.3rem;
   }
-}
-
-@media (max-width: 390px) {
-  .tableStyle {
-    font-size: 10px; /* Adjust font size for smaller screens */
-  }
-
-  .tdStyle,
-  .thStyle {
-    padding: 6px 4px; /* Reduce padding for smaller screens */
-    font-size: 8.8px; /* Adjust font size for smaller screens */
-  }
-
-  .image {
-    width: 0.8rem;
-  }
-
-  .UserImage {
-    width: 1.3rem;
-  }
-}
+} */

@@ -1,6 +1,10 @@
 import bar from "./bar.svg";
 import Logo from "./Logo.png";
 import close from "./close.svg";
+import usdc from "./usdc.svg";
+import sol from "./sol.svg";
+import eth from "./eth.svg";
+import arrowDown from "./arrowDown.svg";
 import HeroImage from "./HeroImage.webp";
 import Cats from "./Cats.webp";
 import airdropBurns from "./airdropBurns.png";
@@ -41,5 +45,9 @@ export {
   dexTools,
   gecko,
   birdEye,
+  usdc,
+  eth,
+  sol,
   usdt,
+  arrowDown
 };

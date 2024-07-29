@@ -9,10 +9,14 @@ import {
   dexScreen,
   dexScreener,
   dexTools,
+  eth,
   gecko,
   jupter,
   roadmap,
   secrete,
+  sol,
+  usdc,
+  usdt,
 } from "../assets";
 
 export const navLinks = [
@@ -57,12 +61,12 @@ export const plan = [
 ];
 
 export const product = [
-  { productName: "DexScreener",image:dexScreener },
-  { productName: "Gecko",image:gecko },
-  { productName: "Birdeye",image:birdEye },
-  { productName: "Jupiter", image:jupter },
-  { productName: "DexScreener",image:dexScreen },
-  { productName: "Dextools",image:dexTools },
+  { productName: "DexScreener", image: dexScreener },
+  { productName: "Gecko", image: gecko },
+  { productName: "Birdeye", image: birdEye },
+  { productName: "Jupiter", image: jupter },
+  { productName: "DexScreener", image: dexScreen },
+  { productName: "Dextools", image: dexTools },
 ];
 
 export const cats = [
@@ -72,5 +76,54 @@ export const cats = [
   { image: cat4 },
 ];
 
+export const data = [
+  {
+    Title: "Game",
+    Game: "jd",
+    User: "Codicat",
+    Action: "ENTRY",
+    Amount: 0.018,
+    image: "jd",
+  },
+  {
+    Title: "User",
+    Game: "jd",
+    User: "Codicat",
+    Action: "ENTRY",
+    Amount: 0.018,
+    image: "jd",
+  },
+  {
+    Title: "Action",
+    Game: "jd",
+    User: "Codicat",
+    Action: "ENTRY",
+    Amount: 0.018,
+    image: "jd",
+  },
+  {
+    Title: "Amount",
+    Game: "jd",
+    User: "Codicat",
+    Action: "ENTRY",
+    Amount: 0.018,
+    image: "jd",
+  },
+  {
+    Title: "Time",
+    Game: "jd",
+    User: "Codicat",
+    Action: "WIN",
+    Amount: 0.018,
+    image: "jd",
+  },
+];
 
-
+export const token = [
+  { image: usdt, token: "USDT", network: "(ERC20)" },
+  { image: usdt, token: "USDT", network: "(BEP20)" },
+  { image: usdt, token: "USDT", network: "(TRC20)" },
+  { image: sol, token: "SOL", network: "(SOLANA)" },
+  { image: eth, token: "ETHERUM", network: "(ERC20)" },
+  { image: usdc, token: "USDC", network: "(ERC20)" },
+];

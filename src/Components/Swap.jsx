@@ -1,9 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import "../App.css";
 import styles from "./Swap.module.css";
-import { usdt } from "../assets";
+import { arrowDown, usdt } from "../assets";
+import Dropdown from "./Dropdown";
+
+// export const arrowDown = () => {
+//   return (
+//     <span>
+//       <svg
+//         width="16"
+//         height="10"
+//         viewBox="0 0 16 10"
+//         fill="none"
+//         xmlns="http://www.w3.org/2000/svg"
+//       >
+//         <path
+//           d="M15 1.86353L9.23737 7.62615C8.55682 8.30671 7.44318 8.30671 6.76263 7.62615L1 1.86353"
+//           stroke="#3D0752"
+//           stroke-width="2"
+//           stroke-miterlimit="10"
+//           stroke-linecap="round"
+//           stroke-linejoin="round"
+//         />
+//       </svg>
+//     </span>
+//   );
+// };
 
 const Swap = () => {
+  const [dropdown, setDropDown] = useState(false);
+  const [tokenState, setTokenState] = useState([usdt, "USDT"]);
+
+  const showDropdown = () => {
+    setDropDown(!false);
+  };
+
+  const closeDropdown = () => {
+    setDropDown(false);
+  };
+
+  const tokenStateHandler = (currentToken) => {
+    setTokenState(currentToken);
+  };
+
   return (
     <section className={`section pt-[1rem]`}>
       <div className={`sectionContainer ${styles.swapContainer} `}>
@@ -35,7 +74,7 @@ const Swap = () => {
             <div className={`${styles.secondDiv}`}>
               {/************************************* Form and Option Div  one ************************************/}
 
-              <div className={`${styles.inputWrapper} flex  w-full`}>
+              <div className={`${styles.inputWrapper} flex  w-full relative`}>
                 <div
                   className={`${styles.inputContainer} rounded-tr-[0px] rounded-br-[0px] `}
                 >
@@ -45,7 +84,22 @@ const Swap = () => {
                   <input className={`${styles.input}`} />
                 </div>
 
-                <button className={styles.swapBtn}><img src={usdt} className="w-[15px]"/>USDT</button>
+                <>
+                  <button className={styles.swapBtn} onClick={showDropdown}>
+                    <img src={tokenState[0]} className="w-[15px]" />
+                    {tokenState[1]}
+                    <img src={arrowDown} />
+                  </button>
+
+                  <div className="absolute right-0 top-[51px] ">
+                    {dropdown && (
+                      <Dropdown
+                        tokenStateHandler={tokenStateHandler}
+                        closeDropdown={closeDropdown}
+                      />
+                    )}
+                  </div>
+                </>
               </div>
 
               {/************************************* Form and Option Div Two************************************/}
