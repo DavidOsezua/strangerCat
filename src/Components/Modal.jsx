@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Modal.module.css";
+import SuccessForm from "./SuccessForm";
 
 export const QrCode = () => {
   return (
@@ -33,12 +34,62 @@ export const QrCode = () => {
   );
 };
 
+export const Spinner = () => {
+  return (
+    <span>
+      <svg
+        width="64"
+        height="64"
+        viewBox="0 0 64 64"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M32 0C33.7674 0 35.2 1.4327 35.2 3.2V12.8C35.2 14.5673 33.7674 16 32 16C30.2326 16 28.8 14.5673 28.8 12.8V3.2C28.8 1.4327 30.2326 0 32 0ZM32 48C33.7674 48 35.2 49.4326 35.2 51.2V60.8C35.2 62.5674 33.7674 64 32 64C30.2326 64 28.8 62.5674 28.8 60.8V51.2C28.8 49.4326 30.2326 48 32 48ZM64 32C64 33.7674 62.5674 35.2 60.8 35.2H51.2C49.4326 35.2 48 33.7674 48 32C48 30.2326 49.4326 28.8 51.2 28.8H60.8C62.5674 28.8 64 30.2326 64 32ZM16 32C16 33.7674 14.5673 35.2 12.8 35.2H3.2C1.4327 35.2 0 33.7674 0 32C0 30.2326 1.4327 28.8 3.2 28.8H12.8C14.5673 28.8 16 30.2326 16 32ZM54.6275 54.6275C53.3776 55.8771 51.3517 55.8771 50.1021 54.6275L43.3136 47.839C42.064 46.5894 42.064 44.5635 43.3136 43.3136C44.5635 42.064 46.5894 42.064 47.839 43.3136L54.6275 50.1021C55.8771 51.3517 55.8771 53.3776 54.6275 54.6275ZM20.6863 20.6863C19.4366 21.936 17.4105 21.936 16.1608 20.6863L9.37258 13.8981C8.12291 12.6484 8.12291 10.6223 9.37258 9.37258C10.6223 8.12291 12.6484 8.12291 13.8981 9.37258L20.6863 16.1608C21.936 17.4105 21.936 19.4366 20.6863 20.6863ZM9.37258 54.6275C8.12291 53.3776 8.12291 51.3517 9.37258 50.1021L16.1608 43.3136C17.4105 42.064 19.4366 42.064 20.6863 43.3136C21.936 44.5635 21.936 46.5894 20.6863 47.839L13.8981 54.6275C12.6484 55.8771 10.6223 55.8771 9.37258 54.6275ZM43.3136 20.6863C42.064 19.4366 42.064 17.4105 43.3136 16.1608L50.1021 9.37258C51.3517 8.12291 53.3776 8.12291 54.6275 9.37258C55.8771 10.6223 55.8771 12.6484 54.6275 13.8981L47.839 20.6863C46.5894 21.936 44.5635 21.936 43.3136 20.6863Z"
+          fill="#FDF9FF"
+        />
+      </svg>
+    </span>
+  );
+};
+
 const Modal = ({ modalHandler }) => {
+  const [miniModal, setMiniModal] = useState(false);
+  const [loading, setLoading] = useState();
+
+  useEffect(function () {
+    async function fetch() {
+      setLoading(true);
+      await new Promise((resolve) => setTimeout(resolve, 3000));
+
+      setLoading(false);
+    }
+
+    fetch();
+  }, []);
+
+  const miniModalHandler = () => {
+    setMiniModal(!false);
+  };
+
   return (
     <>
       <div className={`${styles.overlay}`}>
         <div className={`${styles.overlay2}`} onClick={modalHandler}></div>
         <div className={`${styles.wrapper}`}>
+          {miniModal && (
+            <div className={styles.overlay3}>
+              {loading ? (
+                <div className={styles.spinner}>
+                  <Spinner />
+                </div>
+              ) : (
+                <div>
+                  <SuccessForm modalHandler={modalHandler} />
+                </div>
+              )}
+            </div>
+          )}
           <div className={`flex justify-center`}>
             <QrCode />
           </div>
@@ -60,7 +111,10 @@ const Modal = ({ modalHandler }) => {
             <button className={`${styles.btn} text-[#3D0752]`}>
               Copy address
             </button>
-            <button className={`${styles.btn} bg-[#5F3873] `}>
+            <button
+              className={`${styles.btn} bg-[#5F3873] `}
+              onClick={miniModalHandler}
+            >
               Confirm payment
             </button>
           </div>
