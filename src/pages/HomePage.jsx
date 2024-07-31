@@ -11,12 +11,14 @@ import {
   Tokenomics,
   Vision,
 } from "../Components";
+import TextComponent from "../Components/TextComponent";
 
 const HomePage = () => {
   return (
     <>
       <Navbar />
       <Hero />
+      <TextComponent />
       <Participation />
       <Tokenomics />
       <Roadmap />

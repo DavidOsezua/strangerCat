@@ -69,7 +69,7 @@ const SignUp =  () => {
   
   return (
     <div className={`${styles.loginContent}`}>
-      <p>LOGIN</p>
+      <p>SignUp</p>
       <form action="index.html" className={styles.form}>
         <div className={`${styles.inputDiv} one`}>
           <div className="i">
