@@ -91,10 +91,10 @@ export const data = [
 ];
 
 export const token = [
-  { image: usdt, token: "USDT", network: "(ERC20)" },
-  { image: usdt, token: "USDT", network: "(BEP20)" },
-  { image: usdt, token: "USDT", network: "(TRC20)" },
-  { image: sol, token: "SOL", network: "(SOLANA)" },
-  { image: eth, token: "ETHERUM", network: "(ERC20)" },
-  { image: usdc, token: "USDC", network: "(ERC20)" },
+  { image: usdt, token: "USDT", network: "(ERC20)", value : "usdterc20" },
+  { image: usdt, token: "USDT", network: "(BEP20)", value : "usdtbsc" },
+  { image: usdt, token: "USDT", network: "(TRC20)", value : "usdttrc20" },
+  { image: sol, token: "SOL", network: "(SOLANA)" , value : "sol"},
+  { image: eth, token: "ETHERUM", network: "(ERC20)", value : "eth" },
+  { image: usdc, token: "USDC", network: "(ERC20)", value : "usdc" },
 ];

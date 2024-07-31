@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Modal.module.css";
 import SuccessForm from "./SuccessForm";
+import { Axios } from "../req";
+import { toast } from "react-toastify";
+
+
+// const finishedStatus = ["confirmed", ]
 
 export const QrCode = () => {
   return (
@@ -53,23 +58,45 @@ export const Spinner = () => {
   );
 };
 
-const Modal = ({ modalHandler }) => {
+const Modal = ({ modalHandler, orderDetail }) => {
   const [miniModal, setMiniModal] = useState(false);
   const [loading, setLoading] = useState();
-
+  const [status, setStatus] = useState(orderDetail ? orderDetail.payment_status : "waiting")
+  
   useEffect(function () {
     async function fetch() {
-      setLoading(true);
-      await new Promise((resolve) => setTimeout(resolve, 3000));
+      // setLoading(true);
 
-      setLoading(false);
+      // await new Promise((resolve) => setTimeout(resolve, 3000));
+
+      // setLoading(false);
     }
 
-    fetch();
+    // fetch();
   }, []);
 
+  useEffect(()=> {
+    if(orderDetail) setStatus(orderDetail.payment_status)
+  }, [orderDetail])
+  
   const miniModalHandler = () => {
-    setMiniModal(!false);
+    if(!orderDetail)
+    return 
+    setLoading(true)
+    
+    Axios.get(`/status?id=${orderDetail.payment_id}`).then((res) => {
+      setStatus(res.data.payment_status)
+      setLoading(false)
+      if(res.data.payment_status == "finished"){
+        setMiniModal(!false);
+      }
+    }).catch((e) => {
+      console.log(e)
+      setLoading(false)
+    })
+    
+    
+    // setMiniModal(!false);
   };
 
   return (
@@ -77,6 +104,19 @@ const Modal = ({ modalHandler }) => {
       <div className={`${styles.overlay}`}>
         <div className={`${styles.overlay2}`} onClick={modalHandler}></div>
         <div className={`${styles.wrapper}`}>
+          {
+            loading &&  (
+              <div className={styles.overlay3}>   
+             <div className={styles.spinner}>
+                <Spinner />
+              </div>
+             </div>
+            
+          
+          )
+            
+          }
+          
           {miniModal && (
             <div className={styles.overlay3}>
               {loading ? (
@@ -94,21 +134,33 @@ const Modal = ({ modalHandler }) => {
             <QrCode />
           </div>
           <p className="text-center w-[70%] mx-auto pb-[1rem]">
-            Send only USDT to this address. Sending any other coin may result in
-            permanent loss.
+            {`Send only ${orderDetail && orderDetail.pay_amount} ${orderDetail && orderDetail.pay_currency} to this address. Sending any other coin may result in
+            permanent loss.`}
           </p>
+
 
           <div className="flex justify-between pb-[1rem]">
             <p>Network</p>
-            <p>BNB Smart chain(BEP20)</p>
+            <p>{orderDetail && orderDetail.network}</p>
           </div>
+
+          <div className="flex justify-between pb-[1rem]">
+            <p>Status</p>
+            <p>{status}</p>
+          </div>
+
+
           <div className="flex justify-between">
             <p>Wallet address</p>
-            <p>0x05dA5wbDD779AekJJs23c4FFa5 </p>
+            <p>{orderDetail && orderDetail.pay_address} </p>
           </div>
 
           <div className="flex gap-3 pt-3 ">
-            <button className={`${styles.btn} text-[#3D0752]`}>
+            <button className={`${styles.btn} text-[#3D0752]`}  onClick={() => {
+              navigator.clipboard.writeText(orderDetail.pay_address)
+              toast.success("Address copied")
+
+            }}>
               Copy address
             </button>
             <button

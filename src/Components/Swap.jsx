@@ -1,8 +1,42 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "../App.css";
 import styles from "./Swap.module.css";
 import { arrowDown, usdt } from "../assets";
 import Dropdown from "./Dropdown";
+import { Axios, getConversion } from "../req";
+import { toast } from "react-toastify";
+import { useNavigate } from 'react-router-dom';
+
+const usdTokens = ['usdterc20', "usdtbsc", "usdttrc20", "usdc"  ]
+
+const tokens = {
+  usdterc20 : {
+    minAmount : 12,
+    maxAmount : 84533
+  },
+  usdtbsc : {
+    minAmount : 10,
+    maxAmount : 25425
+  
+  },
+  usdttrc20 : {
+    minAmount : 12,
+    maxAmount : 88983
+  },
+  sol : {
+    minAmount : 0.0533304,
+    maxAmount : 51
+  },
+  eth : {
+    minAmount : 0.0028929,
+    maxAmount : 26.589458072453095
+  },
+
+  usdc : {
+    minAmount : 12,
+    maxAmount : 31775
+  },
+}
 
 // export const arrowDown = () => {
 //   return (
@@ -12,7 +46,7 @@ import Dropdown from "./Dropdown";
 //         height="10"
 //         viewBox="0 0 16 10"
 //         fill="none"
-//         xmlns="http://www.w3.org/2000/svg"
+//         xmlns="http://www.w3.org/2000
 //       >
 //         <path
 //           d="M15 1.86353L9.23737 7.62615C8.55682 8.30671 7.44318 8.30671 6.76263 7.62615L1 1.86353"
@@ -27,10 +61,16 @@ import Dropdown from "./Dropdown";
 //   );
 // };
 
-const Swap = ({modalHandler}) => {
+const Swap = ({modalHandler, setOrderDetail}) => {
   const [dropdown, setDropDown] = useState(false);
   const [tokenState, setTokenState] = useState([usdt, "USDT"]);
-
+  const [token, setToken] = useState("usdtbsc")
+  const [amountUsd, setAmountUsd] = useState("0")
+  const [amountToken, setAmountToken] = useState("")
+  // const [orderDetail, setOrderDetail] = useState(null)
+  const isUpdatingRef = useRef(false);
+  const navigate = useNavigate();
+  
   const showDropdown = () => {
     setDropDown(!false);
   };
@@ -42,6 +82,89 @@ const Swap = ({modalHandler}) => {
   const tokenStateHandler = (currentToken) => {
     setTokenState(currentToken);
   };
+
+  
+  useEffect(() => {
+    if(!amountUsd) return 
+    if (isUpdatingRef.current !== "usdt") return;
+    if(token.includes("usd")) {
+      setAmountToken(amountUsd)
+      return 
+    }
+    if(!token) return
+    getConversion(amountUsd, "usd", token).then((res) => {
+      setAmountToken(res)
+    }).catch((e) => {
+      console.log(e)
+    })
+  }, [amountUsd])
+
+
+  useEffect(() => {
+    if(!amountToken) return 
+    if (isUpdatingRef.current !== "token") return;
+    if(token.includes("usd")) {
+       setAmountUsd(amountToken)
+      return 
+    }
+
+    if(!token) return
+    getConversion(amountToken, token, "usd").then((res) => {
+      setAmountUsd(res)
+    }).catch((e) => {
+      console.log(e)
+    })
+    
+    
+    // setAmountUsd(amountToken)
+  }, [amountToken, token])
+
+
+  const handleBuy = async () => {
+    if(!amountToken) {
+      toast.warn("Token amount required")
+      return 
+    }
+    if(!token) {
+      toast.warn("Token required")
+      return
+    }
+
+    const accessToken = localStorage.getItem("accessToken")
+    console.log(accessToken)
+    if(!accessToken){
+      toast.warn("Not logged in")
+      navigate("/login")
+      return 
+    }
+    // const res = toast.loading("Creating Order")
+
+    const payload = {
+      price_amount : amountUsd,
+      pay_currency : token,
+      pay_amount : amountToken
+    }
+
+    toast.promise(Axios.post("/buy", payload, {
+      headers : {
+        "Content-Type" : 'application/json',
+        "Authorization" :  `Bearer ${accessToken}`
+      }
+    }), {
+      pending  : "Creating Order",
+      error : "Error Creating order",
+      success  : "Order created successfully"
+    }).then((res) => {
+      setOrderDetail(res.data)
+      modalHandler()
+    }).catch((e) => {
+      console.log(e)
+    })
+  
+    // modalHandler controls the modal
+  }
+
+
 
   return (
     <section className={`section pt-[1rem]`}>
@@ -56,7 +179,10 @@ const Swap = ({modalHandler}) => {
 
           <div className={`${styles.inputContainer} `}>
             <p className={styles.text}>Amount in USD</p>
-            <input placeholder="0" className={`${styles.input}`} />
+            <input placeholder="0" className={`${styles.input}`} value={amountUsd} onChange={(e) => {
+              isUpdatingRef.current = "usdt"
+              setAmountUsd(e.target.value)
+              }}/>
           </div>
         </div>
 
@@ -81,7 +207,11 @@ const Swap = ({modalHandler}) => {
                   <p className={styles.text}>
                     Enter the amount in USD to purchase tokens
                   </p>
-                  <input className={`${styles.input}`} />
+                  <input className={`${styles.input}`} value={amountToken}  onChange={(e) => {
+                    isUpdatingRef.current = "token"
+                    setAmountToken(e.target.value)}
+                    
+                    } />
                 </div>
 
                 <>
@@ -94,6 +224,7 @@ const Swap = ({modalHandler}) => {
                   <div className="absolute right-0 top-[51px] ">
                     {dropdown && (
                       <Dropdown
+                        setToken = {setToken}
                         tokenStateHandler={tokenStateHandler}
                         closeDropdown={closeDropdown}
                       />
@@ -118,7 +249,7 @@ const Swap = ({modalHandler}) => {
           </>
         </div>
 
-        <button className={`${styles.btn}`} onClick={modalHandler}>BUY $STRANGER CAT NOW</button>
+        <button className={`${styles.btn}`} onClick={handleBuy}>BUY $STRANGER CAT NOW</button>
       </div>
     </section>
   );

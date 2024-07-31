@@ -1,19 +1,55 @@
 // import React from "react"
+import { useEffect, useState } from "react";
 import { data } from "../Data/data";
 import styles from "./Table.module.css";
+import { Axios } from "../req";
 
 const HEADERS = [
   "Transaction Number",
   "Tokens",
   "Amount in Crypto Currency",
   "Amount in US dollars",
-  "To Wallet Address",
+  // "To Wallet Address",
   "Status",
   "Type",
   "Action",
 ];
 
-const Table = () => {
+const Table = ({setOrderDetail, modalHandler}) => {
+  const [transactions, setTransactions] = useState([])
+
+  useEffect(() => {
+    const accessToken = localStorage.getItem("accessToken")
+    if(!accessToken){
+       return 
+    }
+    
+    Axios.get("/transactions", {
+      headers : {
+          "Content-Type" : 'application/json',
+          "Authorization" :  `Bearer ${accessToken}`
+        }
+      
+    }).then((res) => {
+      console.log(res.data)
+      setTransactions(res.data.reverse())
+    }).catch((e) => {
+      console.log(e)
+    })
+    // console.log("Getting user transactions")
+  }, [])
+  
+  const handleClick = (paymentId) => {
+    Axios.get(`/status?id=${paymentId}`).then((res) => {
+      setOrderDetail(res.data)
+      modalHandler()
+    }).catch((e) => {
+      console.log(e)
+    })
+
+
+  }
+  
   return (
     <div className="table-responsive ">
       <table className={`${styles.tableStyle}`}>
@@ -27,12 +63,13 @@ const Table = () => {
           </tr>
         </thead>
         <tbody>
-          {data.map((item, index) => (
+          {transactions.map((item, index) => (
             <tr
               key={item.id}
               className={
-                (index + 1) % 2 === 0 ? "bg-[#7B548DB2]" : "bg-[#7B548D8C]"
+                (index + 1) % 2 === 0 ? "bg-[#7B548DB2] cursor-pointer" : "bg-[#7B548D8C] cursor-pointer"
               }
+              onClick={() => handleClick(item.id)}
             >
               <td className={`${styles.tdStyle}`}>
                 {" "}
@@ -41,14 +78,14 @@ const Table = () => {
                     src=""
                     className={`${styles.image}  w-[2rem] rounded-md`}
                   />
-                  {item.Game}
+                  {item.id}
                 </div>
               </td>
 
               <td className={`${styles.tdStyle}`}>
                 <div className="flex items-center">
                   <img src="" className={`${styles.UserImage}`} />
-                  {item.User}
+                  {item.pay_currency}
                 </div>
               </td>
 
@@ -57,19 +94,19 @@ const Table = () => {
                   item.Action === "ENTRY" ? "text-[#FFC72E]" : "text-[#56FF47]"
                 }`}
               >
-                {item.Action}
+                {item.pay_amount}
               </td>
 
               <td className={`${styles.tdStyle}`}>
                 <div className="flex items-center">
                   <img src="" />
-                  {item.Amount}
+                  {item.price_amount}
                 </div>
               </td>
 
-          <td className={`${styles.tdStyle} text-[#FF6665]`}>
+          {/* <td className={`${styles.tdStyle} text-[#FF6665]`}>
                 {item.Time}
-              </td>    
+              </td>     */}
           <td className={`${styles.tdStyle} text-[#FF6665]`}>
                 {item.status}
               </td>    

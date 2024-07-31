@@ -18,7 +18,7 @@ export const Green = () => {
   );
 };
 
-const DashboardNavbar = () => {
+const DashboardNavbar = ({userDetails}) => {
   return (
     <header className={styles.navbar}>
       <nav className={styles.navContainer}>
@@ -35,11 +35,11 @@ const DashboardNavbar = () => {
           </div>
 
           <p className="flex items-center gap-2 border border-[#fff] px-[1.1rem] py-[0.5rem]">
-            Token holding 0 $TRANGERCAT
+            {`Token holding ${userDetails ? userDetails.balance.toPrecision(8) : 0} $TRANGERCAT`}
           </p>
 
           <p className="flex items-center gap-2 border border-[#fff] px-[1.1rem] py-[0.5rem]">
-            Current Fiat Value 0USDT
+            {`Current Fiat Value ${userDetails ? userDetails.balance * 0.00001 : 0} USDT`}
           </p>
         </div>
 

@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Wallet.module.css";
 
-const Wallet = () => {
+const Wallet = ({userDetails}) => {
   return (
     <section className={`section`}>
       <div className={`sectionContainer pt-0  ${styles.walletContainer}`}>
@@ -31,7 +31,7 @@ const Wallet = () => {
           <p>Token Balance</p>
 
           <div>
-            <p>0 STRANGERCAT</p>
+            <p>{userDetails ? userDetails.balance.toPrecision(8) : 0} STRANGERCAT</p>
             <span></span>
           </div>
 

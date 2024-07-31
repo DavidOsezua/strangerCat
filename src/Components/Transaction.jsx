@@ -22,7 +22,7 @@ export const Search = () => {
   );
 };
 
-const Transaction = () => {
+const Transaction = ({setOrderDetail, modalHandler}) => {
   return (
     <section className={`section `}>
       <div className={`sectionContainer ${styles.transactionContainer} `}>
@@ -46,7 +46,7 @@ const Transaction = () => {
         </div>
 
         <div className={`${styles.tableContainer}`}>
-          <Table />
+          <Table setOrderDetail={setOrderDetail} modalHandler={modalHandler} />
         </div>
       </div>
     </section>

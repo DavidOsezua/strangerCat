@@ -1,9 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Login.module.css";
 import "../App.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { Axios } from "../req";
 
 const Login = () => {
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+  const navigate = useNavigate()
+  const handleLogin = async (e) => {
+    e.preventDefault()
+    if(!email){
+      toast.warn("Email required")
+      return 
+    }
+
+    if(!password) {
+      toast.warn("Password Required")
+      return 
+    }
+    const payload = {
+      email,
+      password
+    }
+
+    Axios.post("/login", JSON.stringify(payload)).then((res) => {
+      localStorage.setItem("accessToken", res.data.access_token)
+      toast.success("Login successful")
+      navigate("/dashboard")
+    }).catch((e) => {
+      toast.warn(e.response.data.message)
+    })
+
+
+
+  }
+  
   return (
     <div className={`${styles.loginContent}`}>
       <p>LOGIN</p>
@@ -13,11 +46,13 @@ const Login = () => {
             <img />
           </div>
           <div className={`inputContainer`}>
-            <p>Username</p>
+            <p>Email</p>
             <input
               type="text"
               className={`input`}
-              placeholder="enter your email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
         </div>
@@ -28,11 +63,11 @@ const Login = () => {
           </div>
           <div className={`inputContainer`}>
             <p>Password</p>
-            <input type="password" className={`input`} placeholder="password" />
+            <input type="password" className={`input`} placeholder="password" onChange={(e) => setPassword(e.target.value)} value={password}/>
           </div>
         </div>
 
-        <button className={`${styles.btn}`}>Login</button>
+        <button className={`${styles.btn}`} onClick={handleLogin}>Login</button>
 
         <div
           className={`flex justify-between text-[#fff] text-[0.6rem] pt-[0.8rem]`}
