@@ -21,7 +21,6 @@ const HomePage = () => {
       <TextComponent />
       <Participation />
       <Tokenomics />
-      <Roadmap />
       <Vision />
       <Contest />
       <Tech />

@@ -134,7 +134,7 @@ const Modal = ({ modalHandler, orderDetail }) => {
           <div className={`flex justify-center`}>
             {orderDetail && <QRCode value={orderDetail.pay_address}  viewBox={`0 0 256 256`}/> } 
           </div>
-          <p className="text-center w-[70%] mx-auto pb-[1rem]">
+          <p className="text-center w-[70%] mx-auto pb-[1rem] text-[#fff]">
             {`Send only ${orderDetail && orderDetail.pay_amount} ${orderDetail && orderDetail.pay_currency} to this address. Sending any other coin may result in
             permanent loss.`}
           </p>

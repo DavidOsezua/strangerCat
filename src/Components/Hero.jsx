@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Hero.module.css";
 import "../App.css";
 import Time from "./Time";
@@ -29,6 +29,15 @@ export const Line = () => {
 };
 
 const Hero = () => {
+  const [filled, setFilled] = useState(0);
+  const [loading, isLoading] = useState(false);
+
+  useEffect(() => {
+    if (filled < 100 && isLoading) {
+      setTimeout(() => setFilled((prev) => (prev += 5)), 50);
+    }
+  }, [filled, isLoading]);
+
   return (
     <section className={`section ${styles.heroSection}`}>
       <div className={`sectionContainer ${styles.heroContainer}`}>
@@ -44,8 +53,16 @@ const Hero = () => {
             </div>
 
             <div className="">
-              {" "}
-              <Line />
+              <div className="h-[5px] max-w-[400px] bg-[#fff]">
+                <div
+                  style={{
+                    height: "100%",
+                    width: `${filled}%`,
+                    backgroundColor: "green",
+                    transition: "width 0.5s",
+                  }}
+                ></div>
+              </div>
               <p className="flex justify-end">0% Sold</p>
             </div>
 
@@ -55,11 +72,10 @@ const Hero = () => {
             </div>
 
             <div className="flex gap-2">
-              <img src={eth} className="w-[15px]"/>
-              <img src={usdt} className="w-[15px]"/>
-              <img src={usdc} className="w-[15px]"/>
-              <img src={sol} className="w-[15px]"/>
-
+              <img src={eth} className="w-[15px]" />
+              <img src={usdt} className="w-[15px]" />
+              <img src={usdc} className="w-[15px]" />
+              <img src={sol} className="w-[15px]" />
             </div>
 
             <NavLink to="createaccount" className={styles.btn}>

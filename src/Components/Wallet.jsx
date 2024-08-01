@@ -5,9 +5,7 @@ import useClipboardPaste from "../CustomHook/useClipboardPaste";
 import { Axios } from "../req";
 
 const Wallet = ({ userDetails, setUserDetails }) => {
-  const handleClipText = (text) => {
-    setClipText(text);
-  };
+ 
 
   const [pastedText, pasteFromClipboard] = useClipboardPaste();
 
