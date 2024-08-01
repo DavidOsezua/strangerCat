@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./DashboardNavbar.module.css";
 import { Logo } from "../assets";
+import { NavLink } from "react-router-dom";
 
 export const Green = () => {
   return (
@@ -24,7 +25,10 @@ const DashboardNavbar = ({userDetails}) => {
       <nav className={styles.navContainer}>
         {/*************  NavLogo ******************/}
         <div className={styles.navLogo}>
-          <img src={Logo} alt="Logo" className="w-[100px]" />
+          <NavLink to="/">
+            {" "}
+            <img src={Logo} alt="Logo" className="w-[100px]" />
+          </NavLink>
         </div>
 
         {/******************  Menu Items *********************/}
@@ -35,11 +39,15 @@ const DashboardNavbar = ({userDetails}) => {
           </div>
 
           <p className="flex items-center gap-2 border border-[#fff] px-[1.1rem] py-[0.5rem]">
-            {`Token holding ${userDetails ? userDetails.balance.toPrecision(8) : 0} $TRANGERCAT`}
+            {`Token holding ${
+              userDetails ? userDetails.balance.toPrecision(8) : 0
+            } $TRANGERCAT`}
           </p>
 
           <p className="flex items-center gap-2 border border-[#fff] px-[1.1rem] py-[0.5rem]">
-            {`Current Fiat Value ${userDetails ? userDetails.balance * 0.00001 : 0} USDT`}
+            {`Current Fiat Value ${
+              userDetails ? userDetails.balance * 0.00001 : 0
+            } USDT`}
           </p>
         </div>
 
