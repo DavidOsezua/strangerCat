@@ -13,8 +13,6 @@ const Wallet = ({ userDetails, setUserDetails }) => {
 
   const [wallet, setWallet] = useState("");
 
-
-
   useEffect(() => {
     if (pastedText !== "") {
       setWallet(pastedText);
@@ -62,8 +60,8 @@ const Wallet = ({ userDetails, setUserDetails }) => {
               }`}
             </p>
             <p>
-              Add or Update your SOLANA wallet address here to receive your
-              $TRANGER CAT token.Enter the amount in USD to purchase tokens
+              Add or Update your SOL wallet address if you want to receive your
+              $STRANGER token.
             </p>
           </div>
 

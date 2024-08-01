@@ -52,7 +52,7 @@ const DashboardNavbar = ({userDetails}) => {
         </div>
 
         <div className={`text-white flex justify-between gap-[5px]`}>
-          <button className={`${styles.btn}`}>Buy $trangerCAT</button>
+          <button className={`${styles.btn}`}>Buy $STRANGER</button>
           <select className={`${styles.select}`}>
             <option>User</option>
           </select>
