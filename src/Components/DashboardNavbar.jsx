@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "./DashboardNavbar.module.css";
 import { Logo } from "../assets";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate, useNavigation } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export const Green = () => {
   return (
@@ -20,6 +21,7 @@ export const Green = () => {
 };
 
 const DashboardNavbar = ({ userDetails }) => {
+  const navigate = useNavigate()
   return (
     <header className={styles.navbar}>
       <nav className={styles.navContainer}>
@@ -53,12 +55,13 @@ const DashboardNavbar = ({ userDetails }) => {
 
         <div className={`text-white flex justify-between gap-[5px]`}>
           <button className={`${styles.btn}`}>Buy $STRANGER</button>
-          <select
-            className={`${styles.mobileProfile} outline-none border-none cursor-pointer text-[#f1f1f1]`}
-          >
-            <option>User</option>
-            <option>Logout</option>
-          </select>
+          <button className={` bg-[#c8a2d6] px-2 py-1 rounded-xl`}  onClick={() => {
+            localStorage.removeItem("accessToken")
+            toast.success("Logged out")
+            navigate("/")
+
+
+          }}  >Logout</button>
         </div>
       </nav>
     </header>

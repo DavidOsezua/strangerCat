@@ -59,6 +59,8 @@ export const Spinner = () => {
   );
 };
 
+const finished_stauses = ["confirming", "confirmed", "sending", "finished"]
+
 const Modal = ({ modalHandler, orderDetail }) => {
   const [miniModal, setMiniModal] = useState(false);
   const [loading, setLoading] = useState();
@@ -88,9 +90,12 @@ const Modal = ({ modalHandler, orderDetail }) => {
     Axios.get(`/status?id=${orderDetail.payment_id}`).then((res) => {
       setStatus(res.data.payment_status)
       setLoading(false)
-      if(res.data.payment_status == "finished"){
+      const paymentStatus = res.data.payment_status
+      
+      if( finished_stauses.includes(paymentStatus)){
         setMiniModal(!false);
       }
+      
     }).catch((e) => {
       console.log(e)
       setLoading(false)

@@ -12,6 +12,7 @@ import { useNavigate } from 'react-router-dom';
 
 const usdTokens = ['usdterc20', "usdtbsc", "usdttrc20", "usdc"  ]
 
+
 const tokens = {
   usdterc20 : {
     minAmount : 12,
