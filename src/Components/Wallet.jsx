@@ -90,12 +90,12 @@ const Wallet = ({ userDetails, setUserDetails }) => {
 
           <div>
             <p>
-              {userDetails ? userDetails.balance.toPrecision(8) : 0} STRANGERCAT
+              {userDetails ? userDetails.balance.toPrecision(8) : 0} $STRANGER
             </p>
             <span></span>
           </div>
 
-          <button className={`btn`}>Buy STRANGER CAT</button>
+          <button className={`btn`}>Buy $STRANGER</button>
         </div>
 
         {/************************************* Second Div  ************************************/}

@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Hero.module.css";
 import "../App.css";
 import Time from "./Time";
-import { Cats, HeroImage } from "../assets";
+import { Cats, eth, HeroImage, Logo, sol, usdc, usdt } from "../assets";
 import { visionCard } from "../Data/data";
 import { NavLink } from "react-router-dom";
 
@@ -10,29 +10,19 @@ export const Line = () => {
   return (
     <span>
       <svg
-        width="100%"
-        height="10"
-        viewBox="0 0 623 10"
+        width="592"
+        height="14"
+        viewBox="0 0 592 14"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
+        <rect width="592" height="14" rx="7" fill="white" />
         <path
-          d="M5 0.5C2.51472 0.5 0.5 2.51472 0.5 5C0.5 7.48528 2.51472 9.5 5 9.5V0.5ZM618 9.5H622.5V0.5H618V9.5ZM5 9.5H618V0.5H5V9.5Z"
-          fill="url(#paint0_linear_56_56)"
+          d="M7 7H43"
+          stroke="#12B76A"
+          stroke-width="10"
+          stroke-linecap="round"
         />
-        <defs>
-          <linearGradient
-            id="paint0_linear_56_56"
-            x1="5"
-            y1="5.5"
-            x2="618"
-            y2="5.5"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#12B76A" />
-            <stop offset="1" stop-color="#425108" />
-          </linearGradient>
-        </defs>
       </svg>
     </span>
   );
@@ -48,46 +38,33 @@ const Hero = () => {
           <img src={Cats} className={styles.catsImage} />
 
           <div className={styles.catsSecondColumn}>
+            <img src={Logo} className="w-[100px]" />
             <div className={styles.textContent}>
-              <p className="font-bold">
-                Total Raised = <span className="text-[#CE3DD8]">$0</span>
-              </p>
-
-              <p>
-                <span className="text-[#CE3DD8]">0.01 </span>USDT = 1 $STRANGER
-              </p>
-
-              <p>Next Stage Price = 0.0125 USDT</p>
+              <p>$0.000025 = 1 $STRANGER</p>
             </div>
 
-            <div>
+            <div className="">
               {" "}
               <Line />
+              <p className="flex justify-end">0% Sold</p>
             </div>
 
-            <div className="flex justify-between gap-5 mt-0">
-              <div>
-                <p className="text-[#CE3DD8] font-bold"> 0 $STRANGER</p>
-                <p>Tokens Sold</p>
-              </div>
-
-              <div>
-                <p>850,000 </p>
-                <p>Remaining</p>
-              </div>
-
-              <div>
-                <p>0% Sold</p>
-              </div>
+            <div className=" text-center">
+              <p>$STRANGER Tokens Remaining</p>
+              <p>500,000,000,000</p>
             </div>
 
-            <div></div>
+            <div className="flex gap-2">
+              <img src={eth} className="w-[15px]"/>
+              <img src={usdt} className="w-[15px]"/>
+              <img src={usdc} className="w-[15px]"/>
+              <img src={sol} className="w-[15px]"/>
+
+            </div>
 
             <NavLink to="createaccount" className={styles.btn}>
               <button>Buy Token</button>
             </NavLink>
-
-            <a href="/">How to buy</a>
           </div>
         </div>
 

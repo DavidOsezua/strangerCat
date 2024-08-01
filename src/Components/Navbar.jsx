@@ -51,9 +51,7 @@ const Navbar = () => {
 
         {/********************* Desktop Right side elements ********************/}
         <div className={styles.desktop}>
-          <Telegram />
-          {/* <Button styles={styles.desktopBtn}>Connect Wallet</Button> */}
-          <Twitter />
+          <button className={`${styles.btn}`}>Buy $STRANGER</button>
         </div>
       </div>
     </nav>
