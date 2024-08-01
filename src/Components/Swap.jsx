@@ -61,6 +61,8 @@ const tokens = {
 //   );
 // };
 
+const price  = 1 / 0.00001
+
 const Swap = ({modalHandler, setOrderDetail}) => {
   const [dropdown, setDropDown] = useState(false);
   const [tokenState, setTokenState] = useState([usdt, "USDT"]);
@@ -240,7 +242,7 @@ const Swap = ({modalHandler, setOrderDetail}) => {
                   className={`${styles.inputContainer} rounded-tr-[0px] rounded-br-[0px] `}
                 >
                   <p className={styles.text}>You receive</p>
-                  <input className={`${styles.input}`} />
+                  <input className={`${styles.input}`}  disabled value={amountUsd ? (parseFloat(amountUsd) * price).toPrecision(8) : 0}/>
                 </div>
 
                 <p className={`${styles.swapBtn}  `}>$TRANGER CAT</p>
