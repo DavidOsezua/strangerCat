@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import "../App.css";
 import styles from "./Swap.module.css";
 import { arrowDown, usdt } from "../assets";
@@ -6,6 +6,9 @@ import Dropdown from "./Dropdown";
 import { Axios, getConversion } from "../req";
 import { toast } from "react-toastify";
 import { useNavigate } from 'react-router-dom';
+
+import _ from 'lodash';
+
 
 const usdTokens = ['usdterc20', "usdtbsc", "usdttrc20", "usdc"  ]
 
@@ -38,29 +41,6 @@ const tokens = {
   },
 }
 
-// export const arrowDown = () => {
-//   return (
-//     <span>
-//       <svg
-//         width="16"
-//         height="10"
-//         viewBox="0 0 16 10"
-//         fill="none"
-//         xmlns="http://www.w3.org/2000
-//       >
-//         <path
-//           d="M15 1.86353L9.23737 7.62615C8.55682 8.30671 7.44318 8.30671 6.76263 7.62615L1 1.86353"
-//           stroke="#3D0752"
-//           stroke-width="2"
-//           stroke-miterlimit="10"
-//           stroke-linecap="round"
-//           stroke-linejoin="round"
-//         />
-//       </svg>
-//     </span>
-//   );
-// };
-
 const price  = 1 / 0.00001
 
 const Swap = ({modalHandler, setOrderDetail}) => {
@@ -73,6 +53,20 @@ const Swap = ({modalHandler, setOrderDetail}) => {
   const isUpdatingRef = useRef(false);
   const navigate = useNavigate();
   
+  const debouncedHandleChange = useCallback(
+    _.debounce((amountIn,tokenIn, tokenOut, setter ) => {
+      console.log('Debounced input value:', amountIn);
+      getConversion( amountIn, tokenIn, tokenOut).then((res) => {
+        setter(res)
+      }).catch((e) => {
+        console.log(e)
+      })
+      
+      // Place your API call or expensive operation here
+    }, 500), // Adjust the delay as needed
+    []
+  );
+
   const showDropdown = () => {
     setDropDown(!false);
   };
@@ -87,23 +81,29 @@ const Swap = ({modalHandler, setOrderDetail}) => {
 
   
   useEffect(() => {
-    if(!amountUsd) return 
+    if(!amountUsd) {
+      setAmountToken("")
+      return} 
     if (isUpdatingRef.current !== "usdt") return;
     if(token.includes("usd")) {
       setAmountToken(amountUsd)
       return 
     }
     if(!token) return
-    getConversion(amountUsd, "usd", token).then((res) => {
-      setAmountToken(res)
-    }).catch((e) => {
-      console.log(e)
-    })
+    debouncedHandleChange(amountUsd, "usd", token, setAmountToken)
+    // getConversion(amountUsd, "usd", token).then((res) => {
+    //   setAmountToken(res)
+    // }).catch((e) => {
+    //   console.log(e)
+    // })
   }, [amountUsd])
 
 
   useEffect(() => {
-    if(!amountToken) return 
+    if(!amountToken) {
+      setAmountUsd("")
+      return
+    } 
     if (isUpdatingRef.current !== "token") return;
     if(token.includes("usd")) {
        setAmountUsd(amountToken)
@@ -111,11 +111,12 @@ const Swap = ({modalHandler, setOrderDetail}) => {
     }
 
     if(!token) return
-    getConversion(amountToken, token, "usd").then((res) => {
-      setAmountUsd(res)
-    }).catch((e) => {
-      console.log(e)
-    })
+    debouncedHandleChange(amountToken, token, "usd", setAmountUsd )
+    // getConversion(amountToken, token, "usd").then((res) => {
+    //   setAmountUsd(res)
+    // }).catch((e) => {
+    //   console.log(e)
+    // })
     
     
     // setAmountUsd(amountToken)
