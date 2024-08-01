@@ -10,7 +10,7 @@ export const Line = () => {
   return (
     <span>
       <svg
-        width="592"
+        width="100%"
         height="14"
         viewBox="0 0 592 14"
         fill="none"
