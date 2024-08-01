@@ -59,7 +59,7 @@ export const Spinner = () => {
   );
 };
 
-const finished_stauses = ["confirming", "confirmed", "sending", "finished", ]
+const finished_stauses = ["confirming", "confirmed", "sending", "finished"]
 
 const Modal = ({ modalHandler, orderDetail }) => {
   const [miniModal, setMiniModal] = useState(false);
