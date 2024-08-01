@@ -1,39 +1,66 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Wallet.module.css";
 import { toast } from "react-toastify";
+import useClipboardPaste from "../CustomHook/useClipboardPaste";
 import { Axios } from "../req";
 
-const Wallet = ({userDetails, setUserDetails}) => {
+const Wallet = ({ userDetails, setUserDetails }) => {
+  const handleClipText = (text) => {
+    setClipText(text);
+  };
 
-  const [wallet, setWallet] = useState("")
+  const [pastedText, pasteFromClipboard] = useClipboardPaste();
+
+  const [wallet, setWallet] = useState("");
+
+
+
+  useEffect(() => {
+    if (pastedText !== "") {
+      setWallet(pastedText);
+    }
+  }, [pastedText]);
 
   const updateAddress = async () => {
-    const accessToken = localStorage.getItem("accessToken")
-    const payload = {wallet}
-    toast.promise(Axios.put("/wallet", payload, {
-      headers : {
-        "Content-Type" : 'application/json',
-        "Authorization" :  `Bearer ${accessToken}`
-      }
-    }), {
-      pending  : "Updating Wallet Address",
-      error : "Error updating wallet",
-      success  : "Wallet updated successfully"
-    }).then((res) => {
-      setUserDetails(res.data)
-    }).catch((e) => {
-      console.log(e)
-    })
-    
+    const accessToken = localStorage.getItem("accessToken");
+    const payload = { wallet };
+    toast
+      .promise(
+        Axios.put("/wallet", payload, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }),
+        {
+          pending: "Updating Wallet Address",
+          error: "Error updating wallet",
+          success: "Wallet updated successfully",
+        }
+      )
+      .then((res) => {
+        setUserDetails(res.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
 
-  }
-  
   return (
     <section className={`section`}>
       <div className={`sectionContainer pt-0  ${styles.walletContainer}`}>
         <div className={`${styles.wallet}`}>
           <div className={`${styles.textContainer}`}>
-            <p>My Wallet Address: {`${userDetails  ? userDetails.wallet_address ?  userDetails.wallet_address : "" : ""}`}</p>
+            <p>
+              My Wallet Address:{" "}
+              {`${
+                userDetails
+                  ? userDetails.wallet_address
+                    ? userDetails.wallet_address
+                    : ""
+                  : ""
+              }`}
+            </p>
             <p>
               Add or Update your SOLANA wallet address here to receive your
               $TRANGER CAT token.Enter the amount in USD to purchase tokens
@@ -48,10 +75,15 @@ const Wallet = ({userDetails, setUserDetails}) => {
                 onChange={(e) => setWallet(e.target.value)}
                 value={wallet}
               />
-              <p className="text-[#F8A5FD]"> Paste</p>
+              <button onClick={pasteFromClipboard} className="text-[#F8A5FD]">
+                {" "}
+                Paste
+              </button>
             </div>
 
-            <button className={`btn`} onClick={updateAddress}>Update</button>
+            <button className={`btn`} onClick={updateAddress}>
+              Update
+            </button>
           </div>
         </div>
 
@@ -59,7 +91,9 @@ const Wallet = ({userDetails, setUserDetails}) => {
           <p>Token Balance</p>
 
           <div>
-            <p>{userDetails ? userDetails.balance.toPrecision(8) : 0} STRANGERCAT</p>
+            <p>
+              {userDetails ? userDetails.balance.toPrecision(8) : 0} STRANGERCAT
+            </p>
             <span></span>
           </div>
 
