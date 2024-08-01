@@ -19,7 +19,7 @@ export const Green = () => {
   );
 };
 
-const DashboardNavbar = ({userDetails}) => {
+const DashboardNavbar = ({ userDetails }) => {
   return (
     <header className={styles.navbar}>
       <nav className={styles.navContainer}>
@@ -53,11 +53,12 @@ const DashboardNavbar = ({userDetails}) => {
 
         <div className={`text-white flex justify-between gap-[5px]`}>
           <button className={`${styles.btn}`}>Buy $STRANGER</button>
-          <select className={`${styles.select}`}>
+          <select
+            className={`${styles.mobileProfile} outline-none border-none cursor-pointer text-[#f1f1f1]`}
+          >
             <option>User</option>
+            <option>Logout</option>
           </select>
-
-          <p className={`${styles.mobileProfile}`}>U</p>
         </div>
       </nav>
     </header>

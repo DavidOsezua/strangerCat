@@ -7,7 +7,7 @@ import { Axios, getConversion } from "../req";
 import { toast } from "react-toastify";
 import { useNavigate } from 'react-router-dom';
 
-import _ from 'lodash';
+// import _ from 'lodash';
 
 
 const usdTokens = ['usdterc20', "usdtbsc", "usdttrc20", "usdc"  ]
@@ -53,19 +53,19 @@ const Swap = ({modalHandler, setOrderDetail}) => {
   const isUpdatingRef = useRef(false);
   const navigate = useNavigate();
   
-  const debouncedHandleChange = useCallback(
-    _.debounce((amountIn,tokenIn, tokenOut, setter ) => {
-      console.log('Debounced input value:', amountIn);
-      getConversion( amountIn, tokenIn, tokenOut).then((res) => {
-        setter(res)
-      }).catch((e) => {
-        console.log(e)
-      })
+  // const debouncedHandleChange = useCallback(
+  //   _.debounce((amountIn,tokenIn, tokenOut, setter ) => {
+  //     console.log('Debounced input value:', amountIn);
+  //     getConversion( amountIn, tokenIn, tokenOut).then((res) => {
+  //       setter(res)
+  //     }).catch((e) => {
+  //       console.log(e)
+  //     })
       
-      // Place your API call or expensive operation here
-    }, 500), // Adjust the delay as needed
-    []
-  );
+  //     // Place your API call or expensive operation here
+  //   }, 500), // Adjust the delay as needed
+  //   []
+  // );
 
   const showDropdown = () => {
     setDropDown(!false);
