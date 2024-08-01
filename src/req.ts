@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL  = "http://127.0.0.1:5000"
+const BASE_URL  = "https://strangercats.io:5010/"
 export const Axios  =  axios.create({
     baseURL: BASE_URL,
     headers: {
