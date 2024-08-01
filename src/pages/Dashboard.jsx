@@ -43,8 +43,8 @@ const Dashboard = () => {
       <DashboardNavbar userDetails={userDetails}/>
       <MidRow />
       <Swap modalHandler={modalHandler}  setOrderDetail={setOrderDetail}/>
-      <Wallet  userDetails={userDetails}/>
-      <ProfileDetails />
+      <Wallet  userDetails={userDetails} setUserDetails={setUserDetails}/>
+      {/* <ProfileDetails /> */}
       <Transaction setOrderDetail={setOrderDetail} modalHandler={modalHandler}/>
     </>
   );
