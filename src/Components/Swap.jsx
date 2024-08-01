@@ -41,7 +41,7 @@ const tokens = {
   },
 }
 
-const price  = 1 / 0.00001
+const price  = 1 / 0.000025
 
 const Swap = ({modalHandler, setOrderDetail}) => {
   const [dropdown, setDropDown] = useState(false);
