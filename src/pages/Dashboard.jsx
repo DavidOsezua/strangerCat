@@ -20,25 +20,31 @@ const Dashboard = () => {
   const [userDetails, setUserDetails] = useState();
 
   useEffect(() => {
-    const accessToken = localStorage.getItem("accessToken")
-    console.log(accessToken)
-    if(!accessToken){
-      toast.warn("Not logged in")
-      navigate("/login")
-      return
+    if (userDetails && !userDetails.wallet_address) {
+      setModal(true);
     }
+  }, [userDetails]);
 
-    Axios.get("/me", {
-      headers : {
-        "Content-Type" : 'application/json',
-        "Authorization" :  `Bearer ${accessToken}`
-      }
-    }).then((res) => {
-      setUserDetails(res.data)
-    }).catch((e) => {
-      console.log(e)
-    })
-  }, [])
+  // useEffect(() => {
+  //   const accessToken = localStorage.getItem("accessToken")
+  //   console.log(accessToken)
+  //   if(!accessToken){
+  //     toast.warn("Not logged in")
+  //     navigate("/login")
+  //     return
+  //   }
+
+  //   Axios.get("/me", {
+  //     headers : {
+  //       "Content-Type" : 'application/json',
+  //       "Authorization" :  `Bearer ${accessToken}`
+  //     }
+  //   }).then((res) => {
+  //     setUserDetails(res.data)
+  //   }).catch((e) => {
+  //     console.log(e)
+  //   })
+  // }, [])
 
   const [initialmodal, setInitialModal] = useState(false);
   const InitialmodalHandler = () => {
@@ -46,11 +52,8 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-    if(userDetails && !userDetails.wallet_address) {
-      setInitialModal(true);
-    }
-    
-  }, [userDetails]);
+    setInitialModal(true);
+  }, []);
 
   const [pastedText, pasteFromClipboard] = useClipboardPaste();
 
@@ -80,7 +83,6 @@ const Dashboard = () => {
         }
       )
       .then((res) => {
-       
         setUserDetails(res.data);
       })
       .catch((e) => {
@@ -91,7 +93,7 @@ const Dashboard = () => {
   return (
     <>
       {initialmodal && (
-        <div className={styles.overlay} >
+        <div className={styles.overlay}>
           <div className={styles.overlay2} onClick={InitialmodalHandler}></div>
           <div className={`${styles.walletContainer}`}>
             <p className="text-[0.8rem] w-[70%] mx-auto text-center ">
@@ -145,7 +147,7 @@ const Dashboard = () => {
       {modal && <Modal modalHandler={modalHandler} orderDetail={orderDetail} />}
       <DashboardNavbar userDetails={userDetails} />
       <MidRow />
-      <Swap modalHandler={modalHandler} setOrderDetail={setOrderDetail}/>
+      <Swap modalHandler={modalHandler} setOrderDetail={setOrderDetail} />
       <Wallet userDetails={userDetails} setUserDetails={setUserDetails} />
       {/* <ProfileDetails /> */}
       <Transaction
