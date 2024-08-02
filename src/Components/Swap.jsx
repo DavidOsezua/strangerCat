@@ -56,7 +56,7 @@ const Swap = ({modalHandler, setOrderDetail}) => {
   
   const debouncedHandleChange = useCallback(
     _.debounce((amountIn,tokenIn, tokenOut, setter ) => {
-      console.log('Debounced input value:', amountIn);
+      console.log('Debounced input value:', amountIn, tokenIn, tokenOut);
       getConversion( amountIn, tokenIn, tokenOut).then((res) => {
         setter(res)
       }).catch((e) => {
@@ -101,6 +101,7 @@ const Swap = ({modalHandler, setOrderDetail}) => {
 
 
   useEffect(() => {
+
     if(!amountToken) {
       setAmountUsd("")
       return
@@ -112,7 +113,8 @@ const Swap = ({modalHandler, setOrderDetail}) => {
     }
 
     if(!token) return
-    debouncedHandleChange(amountToken, token, "usd", setAmountUsd )
+    
+    debouncedHandleChange(amountToken, token, "usd", setAmountUsd)
     // getConversion(amountToken, token, "usd").then((res) => {
     //   setAmountUsd(res)
     // }).catch((e) => {
@@ -223,6 +225,7 @@ const Swap = ({modalHandler, setOrderDetail}) => {
                     onChange={(e) => {
                       isUpdatingRef.current = "token";
                       setAmountToken(e.target.value);
+                      
                     }}
                   />
                 </div>
@@ -240,6 +243,7 @@ const Swap = ({modalHandler, setOrderDetail}) => {
                         setToken={setToken}
                         tokenStateHandler={tokenStateHandler}
                         closeDropdown={closeDropdown}
+                      isUpdatingRef = {isUpdatingRef}
                       />
                     )}
                   </div>
