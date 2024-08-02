@@ -129,7 +129,7 @@ const Dashboard = () => {
                   />
                   <button
                     onClick={pasteFromClipboard}
-                    className="text-[#F8A5FD]"
+                    className="text-[#fff]"
                   >
                     {" "}
                     Paste

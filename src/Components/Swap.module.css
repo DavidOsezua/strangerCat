@@ -1,12 +1,8 @@
 .swapContainer {
   width: 100%;
   padding: 0.8rem 0.5rem;
-  background: linear-gradient(
-    114.51deg,
-    #29013f -0.17%,
-    rgba(60, 22, 82, 0.53) 129.2%
-  );
-  border: 1px solid #ce3dd8;
+  background: #310B0B;
+  border: 2px solid #ff1515; ;
   border-radius: 8px;
 }
 
@@ -21,13 +17,13 @@
 }
 
 .inputWrapper {
-  background: rgba(123, 84, 141, 0.6);
+  background: #02040F99;
   border-radius: 10px;
 }
 
 .inputContainer {
   width: 100%;
-  background: rgba(123, 84, 141, 0.6);
+  background: #02040F99;
   border: 1px solid #1e1e1e;
   border-radius: 9px;
   color: #fff;
@@ -65,16 +61,16 @@
   line-height: 23px;
   /* identical to box height */
 
-  color: #3d0752;
+  color: #fff;
 
-  background: #c8a2d6;
+  background: #ff1515;
   border-radius: 46px;
   padding: 0.8rem;
 }
 
 .swapBtn {
   /* Frame 1261152747 */
-  color: #3d0752;
+  color: #fff;
   display: flex;
   justify-content: center;
   gap: 5px;
@@ -83,7 +79,7 @@
   border-radius: 10px;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
-  background: #c8a2d6;
+  background: #ff1515;
   width: 9rem;
   font-size: 0.7rem;
   font-weight: 700;

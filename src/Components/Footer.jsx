@@ -12,7 +12,7 @@ export const Line = () => {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <line y1="0.5" x2="626" y2="0.5" stroke="#CE3DD8" />
+        <line y1="0.5" x2="626" y2="0.5" stroke="#FF1515" />
       </svg>
     </span>
   );

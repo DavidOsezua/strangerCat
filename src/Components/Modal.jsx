@@ -165,7 +165,7 @@ const Modal = ({ modalHandler, orderDetail }) => {
 
           <div className="flex gap-3 pt-3 ">
             <button
-              className={`${styles.btn} text-[#3D0752]`}
+              className={`${styles.btn} text-[fff]`}
               onClick={() => {
                 navigator.clipboard.writeText(orderDetail.pay_address);
                 toast.success("Address copied");
@@ -174,7 +174,7 @@ const Modal = ({ modalHandler, orderDetail }) => {
               Copy address
             </button>
             <button
-              className={`${styles.btn} bg-[#5F3873] `}
+              className={`${styles.btn} bg-[#310B0B] `}
               onClick={miniModalHandler}
             >
               Confirm payment

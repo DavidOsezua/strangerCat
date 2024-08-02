@@ -3,13 +3,13 @@
   justify-content: center;
   height: 100px;
   width: 100%;
-  background-color: rgb(41, 1, 63);
+  background: #00050c;
   padding-right: 1rem;
   padding-left: 1rem;
   position: sticky;
   z-index: 999;
   top: 0;
-  box-shadow: 0px 5px 5px 0px rgba(42, 62, 132, 0.5);
+  border-bottom: 1px solid #ff1515;
 
   /* box-shadow: ; */
 }
@@ -54,7 +54,7 @@
   padding: 7px 10px;
   gap: 16px;
   font-size: 0.8rem;
-  background: #ce3dd8;
+  background: #ff1515;
   border-radius: 24px;
 }
 
@@ -68,7 +68,7 @@
   gap: 16px;
   max-width: 100px;
   height: 34px;
-  background: rgba(200, 162, 214, 0.44);
+  background: #310B0B;
   border-radius: 27px;
 }
 /* responsive */
@@ -97,7 +97,4 @@
     gap: 10px;
     font-size: 0.9rem;
   }
-
-
-  
 }

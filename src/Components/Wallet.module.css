@@ -1,12 +1,8 @@
 .wallet {
   width: 100%;
-  background: linear-gradient(
-    114.51deg,
-    #29013f -0.17%,
-    rgba(60, 22, 82, 0.53) 129.2%
-  );
+  background: #310B0B;
   border-radius: 8px;
-  border: 1px solid #ce3dd8;
+  border: 1px solid #ff1515;
   padding: 1rem;
 }
 
@@ -41,8 +37,8 @@
   gap: 10px;
   justify-content: space-between;
   width: 100%;
-  background: rgba(123, 84, 141, 0.6);
-  border: 1px solid #1e1e1e;
+  background: #02040F99;
+  border: 1px solid #FF1515;
   border-radius: 9px;
   color: #fff;
   padding: 0.5rem;

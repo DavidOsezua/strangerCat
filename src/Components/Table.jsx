@@ -67,7 +67,9 @@ const Table = ({setOrderDetail, modalHandler}) => {
             <tr
               key={item.id}
               className={
-                (index + 1) % 2 === 0 ? "bg-[#7B548DB2] cursor-pointer" : "bg-[#7B548D8C] cursor-pointer"
+                (index + 1) % 2 === 0
+                  ? "bg-[#02040F99] cursor-pointer"
+                  : "bg-[#04081e99] cursor-pointer"
               }
               onClick={() => handleClick(item.id)}
             >
@@ -104,18 +106,18 @@ const Table = ({setOrderDetail, modalHandler}) => {
                 </div>
               </td>
 
-          {/* <td className={`${styles.tdStyle} text-[#FF6665]`}>
+              {/* <td className={`${styles.tdStyle} text-[#FF6665]`}>
                 {item.Time}
               </td>     */}
-          <td className={`${styles.tdStyle} text-[#FF6665]`}>
+              <td className={`${styles.tdStyle} text-[#FF6665]`}>
                 {item.status}
-              </td>    
-          <td className={`${styles.tdStyle} text-[#FF6665]`}>
+              </td>
+              <td className={`${styles.tdStyle} text-[#FF6665]`}>
                 {item.type}
-              </td>    
-          <td className={`${styles.tdStyle} text-[#FF6665]`}>
+              </td>
+              <td className={`${styles.tdStyle} text-[#FF6665]`}>
                 {item.action}
-              </td>    
+              </td>
             </tr>
           ))}
         </tbody>

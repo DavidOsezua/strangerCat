@@ -6,16 +6,16 @@ import sol from "./sol.svg";
 import eth from "./eth.svg";
 import arrowDown from "./arrowDown.svg";
 import HeroImage from "./HeroImage.webp";
-import Cats from "./Cats.webp";
+import heroImg from "./heroImg.svg";
+import Cats from "./Cats.png";
 import airdropBurns from "./airdropBurns.png";
 import community from "./community.png";
 import secrete from "./secrete.png";
 import roadmap from "./roadmap.png";
-import strangerCat from "./strangerCat.jpeg";
-import cat1 from "./cat1.png";
-import cat2 from "./cat2.png";
-import cat3 from "./cat3.png";
-import cat4 from "./cat4.png";
+import cat1 from "./cat1.svg";
+import cat2 from "./cat2.svg";
+import cat3 from "./cat3.svg";
+import cat4 from "./cat4.svg";
 import dexScreener from "./dexScreener.png";
 import dexScreen from "./dexScreen.png";
 import birdEye from "./birdEye.png";
@@ -23,6 +23,8 @@ import gecko from "./gecko.png";
 import jupter from "./jupiter.png";
 import dexTools from "./dexTools.png";
 import usdt from "./usdt.png";
+import tokenominsMobile from "./tokenominsMobile.svg";
+import strangerCat from "./strangerCat.png";
 
 export {
   bar,
@@ -49,5 +51,7 @@ export {
   eth,
   sol,
   usdt,
-  arrowDown
+  arrowDown,
+  heroImg,
+  tokenominsMobile,
 };
