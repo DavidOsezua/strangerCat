@@ -4,39 +4,40 @@ import "../App.css";
 import Time from "./Time";
 import { Cats, eth, HeroImage, Logo, sol, usdc, usdt } from "../assets";
 import { visionCard } from "../Data/data";
+import { Line, Circle } from "rc-progress";
 import { NavLink } from "react-router-dom";
 
-export const Line = () => {
-  return (
-    <span>
-      <svg
-        width="100%"
-        height="14"
-        viewBox="0 0 592 14"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <rect width="592" height="14" rx="7" fill="white" />
-        <path
-          d="M7 7H43"
-          stroke="#12B76A"
-          stroke-width="10"
-          stroke-linecap="round"
-        />
-      </svg>
-    </span>
-  );
-};
+// export const Line = () => {
+//   return (
+//     <span>
+//       <svg
+//         width="100%"
+//         height="14"
+//         viewBox="0 0 592 14"
+//         fill="none"
+//         xmlns="http://www.w3.org/2000/svg"
+//       >
+//         <rect width="592" height="14" rx="7" fill="white" />
+//         <path
+//           d="M7 7H43"
+//           stroke="#12B76A"
+//           stroke-width="10"
+//           stroke-linecap="round"
+//         />
+//       </svg>
+//     </span>
+//   );
+// };
 
 const Hero = () => {
   const [filled, setFilled] = useState(0);
   const [loading, isLoading] = useState(false);
 
-  useEffect(() => {
-    if (filled < 100 && isLoading) {
-      setTimeout(() => setFilled((prev) => (prev += 5)), 50);
-    }
-  }, [filled, isLoading]);
+  // useEffect(() => {
+  //   if (filled < 100 && isLoading) {
+  //     setTimeout(() => setFilled((prev) => (prev += 5)), 50);
+  //   }
+  // }, [filled, isLoading]);
 
   return (
     <section className={`section ${styles.heroSection}`}>
@@ -52,14 +53,21 @@ const Hero = () => {
               <p>$0.000025 = 1 $STRANGER</p>
             </div>
 
-            <div className="">
-              <div className="h-[5px] max-w-[400px] bg-[#fff]">
+            <div className="w-full">
+              {/* <Line
+                percent={10}
+                strokeWidth={4}
+              
+                strokeColor="#D3D3D3"
+              /> */}
+              <div className="h-[10px] max-w-[400px] rounded-md bg-[#fff]">
                 <div
                   style={{
                     height: "100%",
                     width: `${filled}%`,
                     backgroundColor: "green",
                     transition: "width 0.5s",
+                    
                   }}
                 ></div>
               </div>
