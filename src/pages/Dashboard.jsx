@@ -25,26 +25,26 @@ const Dashboard = () => {
     }
   }, [userDetails]);
 
-  // useEffect(() => {
-  //   const accessToken = localStorage.getItem("accessToken")
-  //   console.log(accessToken)
-  //   if(!accessToken){
-  //     toast.warn("Not logged in")
-  //     navigate("/login")
-  //     return
-  //   }
+  useEffect(() => {
+    const accessToken = localStorage.getItem("accessToken")
+    console.log(accessToken)
+    if(!accessToken){
+      toast.warn("Not logged in")
+      navigate("/login")
+      return
+    }
 
-  //   Axios.get("/me", {
-  //     headers : {
-  //       "Content-Type" : 'application/json',
-  //       "Authorization" :  `Bearer ${accessToken}`
-  //     }
-  //   }).then((res) => {
-  //     setUserDetails(res.data)
-  //   }).catch((e) => {
-  //     console.log(e)
-  //   })
-  // }, [])
+    Axios.get("/me", {
+      headers : {
+        "Content-Type" : 'application/json',
+        "Authorization" :  `Bearer ${accessToken}`
+      }
+    }).then((res) => {
+      setUserDetails(res.data)
+    }).catch((e) => {
+      console.log(e)
+    })
+  }, [])
 
   const [initialmodal, setInitialModal] = useState(false);
   const InitialmodalHandler = () => {
@@ -52,8 +52,10 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-    setInitialModal(true);
-  }, []);
+    if(userDetails && !userDetails.wallet_address){
+      setInitialModal(true);
+    }
+  }, [userDetails]);
 
   const [pastedText, pasteFromClipboard] = useClipboardPaste();
 

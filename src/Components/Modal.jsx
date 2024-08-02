@@ -88,6 +88,8 @@ const Modal = ({ modalHandler, orderDetail }) => {
     if (orderDetail) setStatus(orderDetail.payment_status);
   }, [orderDetail]);
 
+  
+  
   const miniModalHandler = () => {
     if (!orderDetail) return;
     setLoading(true);
@@ -100,10 +102,14 @@ const Modal = ({ modalHandler, orderDetail }) => {
 
         if (finished_stauses.includes(paymentStatus)) {
           setMiniModal(!false);
+          toast.success("Payment Confirmed")
+        }else{
+          toast.warn("Payment not confirmed")
         }
       })
       .catch((e) => {
         console.log(e);
+        toast.error("Error confirming payment")
         setLoading(false);
       });
 

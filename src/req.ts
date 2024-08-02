@@ -3,7 +3,7 @@ import Moralis from "moralis";
 // const Moralis = require("moralis").default;
 
 const BASE_URL  = "https://strangercats.io:5010/"
-
+// const BASE_URL  + 
 export const Axios  =  axios.create({
     baseURL: BASE_URL,
     headers: {
@@ -19,19 +19,10 @@ export const Axios  =  axios.create({
 
 
 export const getConversion  = async (amountIn, tokenIn, tokenOut) => {
-  const solPrice = 167.03
-  const ethereumPrice = 3199.23
-  if (tokenIn == "sol"){
-    return solPrice * Number(amountIn)
-  }else if (tokenIn == "eth"){
-    return ethereumPrice * Number(amountIn)
-  }else if (tokenOut == "sol"){
-    return Number(amountIn) / solPrice 
-  }else if (tokenOut == "eth") {
-    return  Number(amountIn) / ethereumPrice
-  }
   
-  
+
+  const res = await Axios.get(`/convertion?token_from=${tokenIn}&token_to=${tokenOut}`)
+  return Number(res.data) * amountIn
 
   // const res = await axios.get(`https://api.nowpayments.io/v1/estimate?amount=${amountIn}&currency_from=${tokenIn}&currency_to=${tokenOut}`, {
   //   headers : {
