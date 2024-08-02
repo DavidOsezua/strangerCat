@@ -67,6 +67,7 @@ const Modal = ({ modalHandler, orderDetail }) => {
   const [status, setStatus] = useState(
     orderDetail ? orderDetail.payment_status : "waiting"
   );
+  const [success, setSuccess] = useState(false)
 
   // const miniModalHandler = () => {
   //   setMiniModal(!false);
@@ -88,54 +89,72 @@ const Modal = ({ modalHandler, orderDetail }) => {
     if (orderDetail) setStatus(orderDetail.payment_status);
   }, [orderDetail]);
 
+  
+  
   const miniModalHandler = () => {
     if (!orderDetail) return;
     setLoading(true);
+    setMiniModal(true)
 
     Axios.get(`/status?id=${orderDetail.payment_id}`)
       .then((res) => {
         setStatus(res.data.payment_status);
-        setLoading(false);
+        // setLoading(false);
         const paymentStatus = res.data.payment_status;
 
         if (finished_stauses.includes(paymentStatus)) {
-          setMiniModal(!false);
+          setMiniModal(false);
+          setSuccess(true)
+          toast.success("Payment Confirmed")
+        }else{
+          setMiniModal(false);
+          toast.warn("Payment not confirmed")
         }
       })
       .catch((e) => {
         console.log(e);
+        toast.error("Error confirming payment")
         setLoading(false);
+        setMiniModal(false)
       });
 
-    // setMiniModal(!false);
+      
+      // setMiniModal(!false);
   };
 
   return (
     <>
+       
+
       <div className={`${styles.overlay}`}>
         <div className={`${styles.overlay2}`} onClick={modalHandler}></div>
         <div className={`${styles.wrapper}`}>
-          {loading && (
+          {/* {loading && (
             <div className={styles.overlay3}>
               <div className={styles.spinner}>
                 <Spinner />
               </div>
             </div>
-          )}
+          )} */}
 
           {miniModal && (
-            <div className={styles.overlay3}>
-              {loading ? (
+            <div className={styles.overlay3}>              
                 <div>
                   <ModalPopup />
                 </div>
-              ) : (
-                <div>
-                  <SuccessForm modalHandler={modalHandler} />{" "}
-                </div>
-              )}
             </div>
           )}
+
+          {success && (
+            <div className={styles.overlay3}>
+                <div>
+                  <SuccessForm modalHandler={modalHandler} />{" "}
+                </div>              
+            </div>
+          )}
+
+
+
           <div className={`flex justify-center`}>
             {orderDetail && (
               <QRCode value={orderDetail.pay_address} viewBox={`0 0 256 256`} />

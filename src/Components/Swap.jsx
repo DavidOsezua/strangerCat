@@ -64,7 +64,7 @@ const Swap = ({modalHandler, setOrderDetail}) => {
       })
       
       // Place your API call or expensive operation here
-    }, 500), // Adjust the delay as needed
+    }, 200), // Adjust the delay as needed
     []
   );
 
