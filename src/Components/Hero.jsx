@@ -35,17 +35,16 @@ const Hero = () => {
   const [filled, setFilled] = useState(0);
   const [loading, isLoading] = useState(false);
   const [totalSold, setTotalSold] = useState(0);
-  useEffect(() => {
-    if (filled < 100 && isLoading) {
-      setTimeout(() => setFilled((prev) => (prev += 5)), 50);
-    }
-  }, [filled, isLoading]);
 
   useEffect(() => {
     getTotalSold().then((res) => {
       setTotalSold(parseInt(res));
     });
   }, []);
+
+  useEffect(() => {
+    setFilled((totalSold / 500_000_000_000) * 100);
+  }, [totalSold]);
 
   return (
     <section className={`section ${styles.heroSection}`}>
@@ -75,7 +74,7 @@ const Hero = () => {
                     width: `${filled}%`,
                     backgroundColor: "green",
                     transition: "width 0.5s",
-                    borderRadius: "6px",
+                    borderRadius: "7px",
                   }}
                 ></div>
               </div>
