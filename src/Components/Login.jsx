@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Login.module.css";
 import "../App.css";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -9,6 +9,15 @@ const Login = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
   const navigate = useNavigate()
+  
+  useEffect(() => {
+    const accessToken  = localStorage.getItem("accessToken")
+    if(accessToken) {
+      navigate("/dashboard")
+    }
+  }, [])
+
+
   const handleLogin = async (e) => {
     e.preventDefault()
     if(!email){
@@ -32,8 +41,6 @@ const Login = () => {
     }).catch((e) => {
       toast.warn(e.response.data.message)
     })
-
-
 
   }
   

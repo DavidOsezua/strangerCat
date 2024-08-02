@@ -95,7 +95,7 @@ const Hero = () => {
               <img src={sol} className="w-[15px]" />
             </div>
 
-            <NavLink to="createaccount" className={styles.btn}>
+            <NavLink to="login" className={styles.btn}>
               <button>Buy Token</button>
             </NavLink>
           </div>

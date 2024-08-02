@@ -112,6 +112,8 @@ const Modal = ({ modalHandler, orderDetail }) => {
 
   return (
     <>
+       
+
       <div className={`${styles.overlay}`}>
         <div className={`${styles.overlay2}`} onClick={modalHandler}></div>
         <div className={`${styles.wrapper}`}>
