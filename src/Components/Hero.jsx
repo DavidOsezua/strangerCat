@@ -85,7 +85,7 @@ const Hero = () => {
 
             <div className=" text-center">
               <p>$STRANGER Tokens Remaining</p>
-              <p>{500_000_000_000 - totalSold}</p>
+              <p>{(500_000_000_000 - totalSold).toLocaleString()}</p>
             </div>
 
             <div className="flex gap-2">
