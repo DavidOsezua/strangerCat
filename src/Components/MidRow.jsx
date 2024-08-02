@@ -23,12 +23,7 @@ const MidRow = () => {
     <section className={`section`}>
       <div className={`sectionContainer py-0`}>
         <div className={`${styles.midRow}`}>
-          <div className="flex items-center gap-2 border border-[#fff] px-[1.1rem] py-[0.5rem]">
-            <p>STAGE 1</p>
-            <Green />
-          </div>
-
-          <p className="flex items-center gap-2 border border-[#fff] px-[1.1rem] py-[0.5rem]">
+          <p className="text-center gap-2 border border-[#fff] px-[1.1rem] py-[0.5rem]">
             Token holding 0 $TRANGERCAT
           </p>
 
