@@ -3,7 +3,7 @@ import styles from "./Dropdown.module.css";
 import { token } from "../Data/data";
 import Token from "./Token";
 
-const Dropdown = ({ tokenStateHandler, closeDropdown, setToken }) => {
+const Dropdown = ({ tokenStateHandler, closeDropdown, setToken, isUpdatingRef }) => {
   return (
     <div className={`${styles.card}`}>
       {token.map((token, i) => (
@@ -16,6 +16,7 @@ const Dropdown = ({ tokenStateHandler, closeDropdown, setToken }) => {
           closeDropdown={closeDropdown}
           tokenStateHandler={tokenStateHandler}
           setToken = {setToken}
+          isUpdatingRef ={isUpdatingRef}
         />
       ))}
     </div>

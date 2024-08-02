@@ -5,6 +5,8 @@ import Time from "./Time";
 import { Cats, eth, HeroImage, Logo, sol, usdc, usdt } from "../assets";
 import { visionCard } from "../Data/data";
 import { NavLink } from "react-router-dom";
+import axios from "axios";
+import { getTotalSold } from "../req";
 
 export const Line = () => {
   return (
@@ -31,12 +33,21 @@ export const Line = () => {
 const Hero = () => {
   const [filled, setFilled] = useState(0);
   const [loading, isLoading] = useState(false);
-
+  const [totalSold, setTotalSold] = useState(0)
   useEffect(() => {
     if (filled < 100 && isLoading) {
       setTimeout(() => setFilled((prev) => (prev += 5)), 50);
     }
   }, [filled, isLoading]);
+
+
+  useEffect(() => {
+    getTotalSold().then((res) => {
+      setTotalSold(parseInt(res))
+    })
+
+  }, [])
+
 
   return (
     <section className={`section ${styles.heroSection}`}>
@@ -63,12 +74,12 @@ const Hero = () => {
                   }}
                 ></div>
               </div>
-              <p className="flex justify-end">0% Sold</p>
+              <p className="flex justify-end">{(totalSold / 500_000_000_000 * 100).toFixed(4)} % Sold</p>
             </div>
 
             <div className=" text-center">
               <p>$STRANGER Tokens Remaining</p>
-              <p>500,000,000,000</p>
+              <p>{500_000_000_000 - totalSold}</p>
             </div>
 
             <div className="flex gap-2">
