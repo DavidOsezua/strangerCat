@@ -1,8 +1,12 @@
-import React from 'react'
-import styles from './ModalPopup.module.css'
+import React from "react";
+import styles from "./ModalPopup.module.css";
 
 const ModalPopup = () => {
-  return <div className={styles.popUp}>Please wait a moment, Confirming transaction...</div>;
-}
+  return (
+    <div className={styles.popUp}>
+      Please wait a moment, Confirming transaction...
+    </div>
+  );
+};
 
-export default ModalPopup
+export default ModalPopup;

@@ -4,7 +4,7 @@ import SuccessForm from "./SuccessForm";
 import { Axios } from "../req";
 import { toast } from "react-toastify";
 import QRCode from "react-qr-code";
-
+import ModalPopup from "./ModalPopup";
 
 // const finishedStatus = ["confirmed", ]
 
@@ -59,49 +59,54 @@ export const Spinner = () => {
   );
 };
 
-const finished_stauses = ["confirming", "confirmed", "sending", "finished"]
+const finished_stauses = ["confirming", "confirmed", "sending", "finished"];
 
 const Modal = ({ modalHandler, orderDetail }) => {
   const [miniModal, setMiniModal] = useState(false);
   const [loading, setLoading] = useState();
-  const [status, setStatus] = useState(orderDetail ? orderDetail.payment_status : "waiting")
-  
+  const [status, setStatus] = useState(
+    orderDetail ? orderDetail.payment_status : "waiting"
+  );
+
+  // const miniModalHandler = () => {
+  //   setMiniModal(!false);
+  // };
+
   useEffect(function () {
     async function fetch() {
-      // setLoading(true);
+      setLoading(true);
 
-      // await new Promise((resolve) => setTimeout(resolve, 3000));
+      await new Promise((resolve) => setTimeout(resolve, 3000));
 
-      // setLoading(false);
+      setLoading(false);
     }
 
-    // fetch();
+    fetch();
   }, []);
 
-  useEffect(()=> {
-    if(orderDetail) setStatus(orderDetail.payment_status)
-  }, [orderDetail])
-  
+  useEffect(() => {
+    if (orderDetail) setStatus(orderDetail.payment_status);
+  }, [orderDetail]);
+
   const miniModalHandler = () => {
-    if(!orderDetail)
-    return 
-    setLoading(true)
-    
-    Axios.get(`/status?id=${orderDetail.payment_id}`).then((res) => {
-      setStatus(res.data.payment_status)
-      setLoading(false)
-      const paymentStatus = res.data.payment_status
-      
-      if( finished_stauses.includes(paymentStatus)){
-        setMiniModal(!false);
-      }
-      
-    }).catch((e) => {
-      console.log(e)
-      setLoading(false)
-    })
-    
-    
+    if (!orderDetail) return;
+    setLoading(true);
+
+    Axios.get(`/status?id=${orderDetail.payment_id}`)
+      .then((res) => {
+        setStatus(res.data.payment_status);
+        setLoading(false);
+        const paymentStatus = res.data.payment_status;
+
+        if (finished_stauses.includes(paymentStatus)) {
+          setMiniModal(!false);
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+        setLoading(false);
+      });
+
     // setMiniModal(!false);
   };
 
@@ -110,40 +115,38 @@ const Modal = ({ modalHandler, orderDetail }) => {
       <div className={`${styles.overlay}`}>
         <div className={`${styles.overlay2}`} onClick={modalHandler}></div>
         <div className={`${styles.wrapper}`}>
-          {
-            loading &&  (
-              <div className={styles.overlay3}>   
-             <div className={styles.spinner}>
+          {loading && (
+            <div className={styles.overlay3}>
+              <div className={styles.spinner}>
                 <Spinner />
               </div>
-             </div>
-            
-          
-          )
-            
-          }
-          
+            </div>
+          )}
+
           {miniModal && (
             <div className={styles.overlay3}>
               {loading ? (
-                <div className={styles.spinner}>
-                  <Spinner />
+                <div>
+                  <ModalPopup />
                 </div>
               ) : (
                 <div>
-                  <SuccessForm modalHandler={modalHandler} />
+                  <SuccessForm modalHandler={modalHandler} />{" "}
                 </div>
               )}
             </div>
           )}
           <div className={`flex justify-center`}>
-            {orderDetail && <QRCode value={orderDetail.pay_address}  viewBox={`0 0 256 256`}/> } 
+            {orderDetail && (
+              <QRCode value={orderDetail.pay_address} viewBox={`0 0 256 256`} />
+            )}
           </div>
           <p className="text-center w-[70%] mx-auto pb-[1rem] text-[#fff]">
-            {`Send only ${orderDetail && orderDetail.pay_amount} ${orderDetail && orderDetail.pay_currency} to this address. Sending any other coin may result in
+            {`Send only ${orderDetail && orderDetail.pay_amount} ${
+              orderDetail && orderDetail.pay_currency
+            } to this address. Sending any other coin may result in
             permanent loss.`}
           </p>
-
 
           <div className="flex justify-between pb-[1rem]">
             <p>Network</p>
@@ -155,18 +158,19 @@ const Modal = ({ modalHandler, orderDetail }) => {
             <p>{status}</p>
           </div>
 
-
           <div className="flex justify-between">
             <p>Wallet address</p>
             <p>{orderDetail && orderDetail.pay_address} </p>
           </div>
 
           <div className="flex gap-3 pt-3 ">
-            <button className={`${styles.btn} text-[#3D0752]`}  onClick={() => {
-              navigator.clipboard.writeText(orderDetail.pay_address)
-              toast.success("Address copied")
-
-            }}>
+            <button
+              className={`${styles.btn} text-[#3D0752]`}
+              onClick={() => {
+                navigator.clipboard.writeText(orderDetail.pay_address);
+                toast.success("Address copied");
+              }}
+            >
               Copy address
             </button>
             <button

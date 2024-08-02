@@ -4,4 +4,8 @@
   background: #6e568c;
   border-radius: 16px;
   text-align: center;
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  color: #fff;
 }
