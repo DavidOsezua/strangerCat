@@ -18,7 +18,7 @@ const HomePage = () => {
     <>
       <Navbar />
       <Hero />
-      <TextComponent />
+      {/* <TextComponent /> */}
       <Participation />
       <Tokenomics />
       <Vision />

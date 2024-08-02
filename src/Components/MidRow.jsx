@@ -24,7 +24,7 @@ const MidRow = () => {
       <div className={`sectionContainer py-0`}>
         <div className={`${styles.midRow}`}>
           <p className="text-center gap-2 border border-[#fff] px-[1.1rem] py-[0.5rem]">
-            Token holding 0 $TRANGERCAT
+            Token holding 0 $STRANGERCAT
           </p>
 
           <p className="border border-[#fff] px-[1.1rem] py-[0.5rem] ">

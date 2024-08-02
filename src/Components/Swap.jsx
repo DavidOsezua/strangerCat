@@ -268,7 +268,7 @@ const Swap = ({modalHandler, setOrderDetail}) => {
                   />
                 </div>
 
-                <p className={`${styles.swapBtn}  `}>$TRANGER CAT</p>
+                <p className={`${styles.swapBtn}  `}>$STRANGER CAT</p>
               </div>
             </div>
           </>

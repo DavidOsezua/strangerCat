@@ -2,10 +2,20 @@ import React, { useEffect, useState } from "react";
 import styles from "./Hero.module.css";
 import "../App.css";
 import Time from "./Time";
-import { Cats, eth, HeroImage, heroImg, Logo, sol, usdc, usdt } from "../assets";
+import {
+  Cats,
+  eth,
+  HeroImage,
+  heroImg,
+  Logo,
+  sol,
+  usdc,
+  usdt,
+} from "../assets";
 import { visionCard } from "../Data/data";
 import { Line, Circle } from "rc-progress";
 import { NavLink } from "react-router-dom";
+import TextComponent from "./TextComponent";
 import axios from "axios";
 import { getTotalSold } from "../req";
 
@@ -100,6 +110,8 @@ const Hero = () => {
             </NavLink>
           </div>
         </div>
+
+        <TextComponent />
 
         <div className={styles.wrapper}>
           <div className="">

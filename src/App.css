@@ -1,8 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Jomhuria&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=McLaren&display=swap');
-
-
-
+@import url("https://fonts.googleapis.com/css2?family=McLaren&display=swap");
 
 h1,
 h2,
@@ -16,8 +13,8 @@ h6 {
   color: #fff;
 }
 
-
-p {
+p,
+li,button {
   font-family: "McLaren", sans-serif;
   /* font-weight: 100; */
   font-style: normal;
@@ -40,16 +37,16 @@ p {
 
 .inputContainer {
   width: 100%;
-  background:#fff;
+  background: #fff;
   border: 1px solid #1e1e1e;
   border-radius: 9px;
-  color: #2D2D2D;
+  color: #2d2d2d;
   padding: 0.5rem;
 }
 
 .input {
   outline: none;
-  color: #2D2D2D;
+  color: #2d2d2d;
   background: transparent;
   width: 100%;
 }
@@ -59,6 +56,6 @@ p {
   padding: 0.6rem;
   color: #fff;
   font-weight: 600;
-  background: #FF1515;
+  background: #ff1515;
   border-radius: 9px;
 }

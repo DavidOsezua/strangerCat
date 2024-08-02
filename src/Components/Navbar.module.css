@@ -54,11 +54,7 @@
   .navMenu {
     z-index: 10;
     position: fixed;
-    background: linear-gradient(
-      180deg,
-      rgb(65, 4, 99) 0%,
-      rgb(33, 39, 48) 100%
-    );
+    background: #00050c;
     top: 0;
     right: -1000%;
     width: 70%;
