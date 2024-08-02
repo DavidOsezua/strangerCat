@@ -35,8 +35,6 @@ const DashboardNavbar = ({ userDetails }) => {
 
         {/******************  Menu Items *********************/}
         <div className={`${styles.midRow}`}>
-          
-
           <p className="flex items-center gap-2 border border-[#fff] px-[1.1rem] py-[0.5rem]">
             {`Token holding ${
               userDetails ? userDetails.balance.toPrecision(8) : 0
@@ -52,13 +50,16 @@ const DashboardNavbar = ({ userDetails }) => {
 
         <div className={`text-white flex justify-between gap-[5px]`}>
           <button className={`${styles.btn}`}>Buy $STRANGER</button>
-          <button className={` bg-[#c8a2d6] px-2 py-1 rounded-xl`}  onClick={() => {
-            localStorage.removeItem("accessToken")
-            toast.success("Logged out")
-            navigate("/")
-
-
-          }}  >Logout</button>
+          <button
+            className={` bg-[#310B0B] px-2 py-1 rounded-xl`}
+            onClick={() => {
+              localStorage.removeItem("accessToken");
+              toast.success("Logged out");
+              navigate("/");
+            }}
+          >
+            Logout
+          </button>
         </div>
       </nav>
     </header>

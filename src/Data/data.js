@@ -22,7 +22,6 @@ import {
 export const navLinks = [
   { Link: "Burn" },
   { Link: "Tokenomics" },
-  { Link: "Roadmap" },
   { Link: "Contest" },
   { Link: "Community" },
 ];
@@ -65,7 +64,7 @@ export const product = [
   { productName: "Gecko", image: gecko },
   { productName: "Birdeye", image: birdEye },
   { productName: "Jupiter", image: jupter },
-  { productName: "DexScreener", image: dexScreen },
+  { productName: "Raydium", image: dexScreen },
   { productName: "Dextools", image: dexTools },
 ];
 
@@ -91,10 +90,10 @@ export const data = [
 ];
 
 export const token = [
-  { image: usdt, token: "USDT", network: "(ERC20)", value : "usdterc20" },
-  { image: usdt, token: "USDT", network: "(BEP20)", value : "usdtbsc" },
-  { image: usdt, token: "USDT", network: "(TRC20)", value : "usdttrc20" },
-  { image: sol, token: "SOL", network: "(SOLANA)" , value : "sol"},
-  { image: eth, token: "ETHERUM", network: "(ERC20)", value : "eth" },
-  { image: usdc, token: "USDC", network: "(ERC20)", value : "usdc" },
+  { image: usdt, token: "USDT", network: "(ERC20)", value: "usdterc20" },
+  { image: usdt, token: "USDT", network: "(BEP20)", value: "usdtbsc" },
+  { image: usdt, token: "USDT", network: "(TRC20)", value: "usdttrc20" },
+  { image: sol, token: "SOL", network: "(SOLANA)", value: "sol" },
+  { image: eth, token: "ETHERUM", network: "(ERC20)", value: "eth" },
+  { image: usdc, token: "USDC", network: "(ERC20)", value: "usdc" },
 ];

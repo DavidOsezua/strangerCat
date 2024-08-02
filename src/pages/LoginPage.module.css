@@ -1,5 +1,5 @@
 .loginPage {
-  background-color: #29013f;
+  background: linear-gradient(90deg, #00050c 0%, #05141f 26%, #00050c 100%);
   height: 100vh;
   width: 100%;
   padding-top: 2rem;

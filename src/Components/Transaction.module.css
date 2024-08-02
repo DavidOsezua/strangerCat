@@ -1,12 +1,8 @@
 .transactionContainer {
   width: 100%;
   padding: 2rem 1rem;
-  background: linear-gradient(
-    114.51deg,
-    #29013f -0.17%,
-    rgba(60, 22, 82, 0.53) 129.2%
-  );
-  border: 1px solid #ce3dd8;
+  background: #310B0B;
+  border: 1px solid #ff1515;
   border-radius: 8px;
   /* overflow: scroll; */
   /* overflow-x: scroll; */
@@ -28,7 +24,7 @@
 .select {
   padding: 1rem 1rem;
   width: 150px;
-  background: rgba(123, 84, 141, 0.65);
+  background: #02040F99;
   border-radius: 4px;
 }
 
@@ -44,7 +40,7 @@
   margin-right:1rem ;
   max-width: 310px;
 
-  background: rgba(123, 84, 141, 0.65);
+  background: #02040F99;
   border-radius: 4px;
 }
 

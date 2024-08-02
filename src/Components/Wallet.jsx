@@ -71,7 +71,7 @@ const Wallet = ({ userDetails, setUserDetails }) => {
                 onChange={(e) => setWallet(e.target.value)}
                 value={wallet}
               />
-              <button onClick={pasteFromClipboard} className="text-[#F8A5FD]">
+              <button onClick={pasteFromClipboard} className="text-[#fff]">
                 {" "}
                 Paste
               </button>

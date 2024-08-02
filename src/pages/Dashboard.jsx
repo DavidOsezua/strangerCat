@@ -26,25 +26,27 @@ const Dashboard = () => {
   }, [userDetails]);
 
   useEffect(() => {
-    const accessToken = localStorage.getItem("accessToken")
-    console.log(accessToken)
-    if(!accessToken){
-      toast.warn("Not logged in")
-      navigate("/login")
-      return
+    const accessToken = localStorage.getItem("accessToken");
+    console.log(accessToken);
+    if (!accessToken) {
+      toast.warn("Not logged in");
+      navigate("/login");
+      return;
     }
 
     Axios.get("/me", {
-      headers : {
-        "Content-Type" : 'application/json',
-        "Authorization" :  `Bearer ${accessToken}`
-      }
-    }).then((res) => {
-      setUserDetails(res.data)
-    }).catch((e) => {
-      console.log(e)
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
+      },
     })
-  }, [])
+      .then((res) => {
+        setUserDetails(res.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }, []);
 
   const [initialmodal, setInitialModal] = useState(false);
   const InitialmodalHandler = () => {
@@ -52,10 +54,8 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-    if(userDetails && !userDetails.wallet_address){
-      setInitialModal(true);
-    }
-  }, [userDetails]);
+    setInitialModal(true);
+  }, []);
 
   const [pastedText, pasteFromClipboard] = useClipboardPaste();
 
@@ -129,10 +129,7 @@ const Dashboard = () => {
                     onChange={(e) => setWallet(e.target.value)}
                     value={wallet}
                   />
-                  <button
-                    onClick={pasteFromClipboard}
-                    className="text-[#F8A5FD]"
-                  >
+                  <button onClick={pasteFromClipboard} className="text-[#fff]">
                     {" "}
                     Paste
                   </button>

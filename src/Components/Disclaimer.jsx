@@ -6,7 +6,7 @@ const Disclaimer = () => {
     <section className={`section`}>
       <div className={`sectionContainer `}>
         <div className={`${styles.container}`}>
-          <h1 className={`text-[#CE3DD8] text-[2rem]`}>Disclaimer</h1>
+          <h1 className={`text-[#FF1515] text-[2rem]`}>Disclaimer</h1>
           <p className="font-[200]">
             $STRANGER is a meme coin with no intrinsic value or expectation of
             financial return. $STRANGER is completely useless and for

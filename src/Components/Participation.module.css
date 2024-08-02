@@ -1,8 +1,10 @@
-
-
-
 .stepsContainer {
-  background: #3d0752;
+  /* background: #3d0752; */
+  /* Background */
+
+  background: #310b0b;
+  border-radius: 20px;
+
   border-radius: 25px;
   padding: 2rem 1rem;
   margin-top: 2rem;
@@ -18,7 +20,12 @@
 .stepGuide {
   padding: 1rem 0;
   background: rgba(255, 255, 255, 0.002);
-  border: 3.20585px solid #ce3dd8;
+
+  background: #310b0b;
+  border: 3.20585px solid #ff1515;
+  /* box-shadow: inset 0px 0px 11.4996px 3.44989px #FF1515; */
+  border-radius: 20.3037px;
+
   border-radius: 20.3037px;
   display: flex;
   flex-direction: column;
@@ -30,7 +37,7 @@
 .title {
   font-weight: bold;
   font-size: 1.2rem;
-  background: #ce3dd8;
+  background: #ff1515;
   height: 50px;
   width: 50px;
   border-radius: 50px;

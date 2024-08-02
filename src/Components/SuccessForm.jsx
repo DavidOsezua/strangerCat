@@ -19,7 +19,7 @@ export const Check = () => {
           stroke="url(#paint0_linear_143_2383)"
           stroke-opacity="0.7"
         />
-        <circle cx="32.5" cy="32.5" r="30" fill="#5F3873" />
+        <circle cx="32.5" cy="32.5" r="30" fill="#FF1515" />
         <path
           d="M47.3722 22.3394L27.3722 42.3394L18.2812 33.2484"
           fill="#5F3873"

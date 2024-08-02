@@ -1,5 +1,5 @@
 .overlay {
-  background: #7b548d4d;
+  background: #310b0b80;
   backdrop-filter: blur(2px);
   width: 100%;
   height: 100vh;
@@ -12,6 +12,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
   /* overflow-y: scroll; */
   z-index: 1000;
 }
@@ -19,7 +20,7 @@
 .wrapper {
   position: relative;
   z-index: 1;
-  background-color: #29013f;
+  background-color: #00050c;
   padding: 2rem 1rem;
   max-width: 400px;
   color: #ffffff99;
@@ -42,14 +43,15 @@
 .btn {
   width: 100%;
   height: 44px;
-  background: #c8a2d6;
+  background: #FF1515;
   border-radius: 5px;
   font-weight: 600;
+  color: #fff;
   font-size: 0.8rem;
 }
 
 .overlay3 {
-  background: #211a244d;
+background: #310b0b80;
   max-width: 400px;
   height: 400px;
   margin: auto auto;
