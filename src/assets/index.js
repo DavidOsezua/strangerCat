@@ -25,7 +25,7 @@ import dexTools from "./dexTools.png";
 import usdt from "./usdt.png";
 import tokenominsMobile from "./tokenominsMobile.svg";
 import strangerCat from "./strangerCat.png";
-import gif from "./gif.mp4";
+import gif from "./gif.gif";
 
 export {
   bar,

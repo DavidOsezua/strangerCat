@@ -131,7 +131,9 @@ const Hero = () => {
             {visionCard.map((visionCard) => (
               <div key={visionCard.title} className={styles.visionCard}>
                 <img src={visionCard.image} className="w-[50px]" />
-                <h3 className={`${styles.visionCardTitle}`}>{visionCard.title}</h3>
+                <h3 className={`${styles.visionCardTitle}`}>
+                  {visionCard.title}
+                </h3>
               </div>
             ))}
           </div>
