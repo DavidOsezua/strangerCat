@@ -24,8 +24,8 @@
   border: 4px solid #ff1515;
 }
 
-.title{
-  font-size: 11.8rem;
+.title {
+  font-size: 1.8rem;
 }
 @media screen and (min-width: 80rem) {
   .visionContainer {
