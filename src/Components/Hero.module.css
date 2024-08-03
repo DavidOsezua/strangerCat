@@ -77,6 +77,9 @@
   background: #ff1515;
   color: #fff;
   border-radius: 45px;
+  font-family: "McLaren", sans-serif;
+  font-style: normal;
+  font-weight: 400; 
 }
 
 .visionTitle {

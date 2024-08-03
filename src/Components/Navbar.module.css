@@ -130,6 +130,9 @@ font-size: large;
   font-size: 0.8rem;
   background: #ff1515;
   border-radius: 24px;
+   font-family: "McLaren", sans-serif;
+  font-style: normal;
+  font-weight: 400;
 }
 /* responsive */
 

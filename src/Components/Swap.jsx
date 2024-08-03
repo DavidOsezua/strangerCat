@@ -5,64 +5,63 @@ import { arrowDown, usdt } from "../assets";
 import Dropdown from "./Dropdown";
 import { Axios, getConversion } from "../req";
 import { toast } from "react-toastify";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
-import _ from 'lodash';
+import _ from "lodash";
 
-
-const usdTokens = ['usdterc20', "usdtbsc", "usdttrc20", "usdc"  ]
-
+const usdTokens = ["usdterc20", "usdtbsc", "usdttrc20", "usdc"];
 
 const tokens = {
-  usdterc20 : {
-    minAmount : 12,
-    maxAmount : 84533
+  usdterc20: {
+    minAmount: 12,
+    maxAmount: 84533,
   },
-  usdtbsc : {
-    minAmount : 10,
-    maxAmount : 25425
-  
+  usdtbsc: {
+    minAmount: 10,
+    maxAmount: 25425,
   },
-  usdttrc20 : {
-    minAmount : 12,
-    maxAmount : 88983
+  usdttrc20: {
+    minAmount: 12,
+    maxAmount: 88983,
   },
-  sol : {
-    minAmount : 0.0533304,
-    maxAmount : 51
+  sol: {
+    minAmount: 0.0533304,
+    maxAmount: 51,
   },
-  eth : {
-    minAmount : 0.0028929,
-    maxAmount : 26.589458072453095
+  eth: {
+    minAmount: 0.0028929,
+    maxAmount: 26.589458072453095,
   },
 
-  usdc : {
-    minAmount : 12,
-    maxAmount : 31775
+  usdc: {
+    minAmount: 12,
+    maxAmount: 31775,
   },
-}
+};
 
-const price  = 1 / 0.000025
+const price = 1 / 0.000025;
 
-const Swap = ({modalHandler, setOrderDetail}) => {
+const Swap = ({ modalHandler, setOrderDetail }) => {
   const [dropdown, setDropDown] = useState(false);
   const [tokenState, setTokenState] = useState([usdt, "USDT"]);
-  const [token, setToken] = useState("usdtbsc")
-  const [amountUsd, setAmountUsd] = useState("0")
-  const [amountToken, setAmountToken] = useState("")
+  const [token, setToken] = useState("usdtbsc");
+  const [amountUsd, setAmountUsd] = useState("0");
+  const [amountToken, setAmountToken] = useState("");
   // const [orderDetail, setOrderDetail] = useState(null)
   const isUpdatingRef = useRef(false);
   const navigate = useNavigate();
-  
+
   const debouncedHandleChange = useCallback(
-    _.debounce((amountIn,tokenIn, tokenOut, setter ) => {
-      console.log('Debounced input value:', amountIn, tokenIn, tokenOut);
-      getConversion( amountIn, tokenIn, tokenOut).then((res) => {
-        setter(res)
-      }).catch((e) => {
-        console.log(e)
-      })
-      
+    _.debounce((amountIn, tokenIn, tokenOut, setter) => {
+      console.log("Debounced input value:", amountIn, tokenIn, tokenOut);
+      getConversion(amountIn, tokenIn, tokenOut)
+        .then((res) => {
+          setter(res);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+
       // Place your API call or expensive operation here
     }, 200), // Adjust the delay as needed
     []
@@ -80,98 +79,98 @@ const Swap = ({modalHandler, setOrderDetail}) => {
     setTokenState(currentToken);
   };
 
-  
   useEffect(() => {
-    if(!amountUsd) {
-      setAmountToken("")
-      return} 
-    if (isUpdatingRef.current !== "usdt") return;
-    if(token.includes("usd")) {
-      setAmountToken(amountUsd)
-      return 
+    if (!amountUsd) {
+      setAmountToken("");
+      return;
     }
-    if(!token) return
-    debouncedHandleChange(amountUsd, "usd", token, setAmountToken)
+    if (isUpdatingRef.current !== "usdt") return;
+    if (token.includes("usd")) {
+      setAmountToken(amountUsd);
+      return;
+    }
+    if (!token) return;
+    debouncedHandleChange(amountUsd, "usd", token, setAmountToken);
     // getConversion(amountUsd, "usd", token).then((res) => {
     //   setAmountToken(res)
     // }).catch((e) => {
     //   console.log(e)
     // })
-  }, [amountUsd])
-
+  }, [amountUsd]);
 
   useEffect(() => {
-
-    if(!amountToken) {
-      setAmountUsd("")
-      return
-    } 
+    if (!amountToken) {
+      setAmountUsd("");
+      return;
+    }
     if (isUpdatingRef.current !== "token") return;
-    if(token.includes("usd")) {
-       setAmountUsd(amountToken)
-      return 
+    if (token.includes("usd")) {
+      setAmountUsd(amountToken);
+      return;
     }
 
-    if(!token) return
-    
-    debouncedHandleChange(amountToken, token, "usd", setAmountUsd)
+    if (!token) return;
+
+    debouncedHandleChange(amountToken, token, "usd", setAmountUsd);
     // getConversion(amountToken, token, "usd").then((res) => {
     //   setAmountUsd(res)
     // }).catch((e) => {
     //   console.log(e)
     // })
-    
-    
-    // setAmountUsd(amountToken)
-  }, [amountToken, token])
 
+    // setAmountUsd(amountToken)
+  }, [amountToken, token]);
 
   const handleBuy = async () => {
-    if(!amountToken) {
-      toast.warn("Token amount required")
-      return 
+    if (!amountToken) {
+      toast.warn("Token amount required");
+      return;
     }
-    if(!token) {
-      toast.warn("Token required")
-      return
+    if (!token) {
+      toast.warn("Token required");
+      return;
     }
 
-    const accessToken = localStorage.getItem("accessToken")
-    console.log(accessToken)
-    if(!accessToken){
-      toast.warn("Not logged in")
-      navigate("/login")
-      return 
+    const accessToken = localStorage.getItem("accessToken");
+    console.log(accessToken);
+    if (!accessToken) {
+      toast.warn("Not logged in");
+      navigate("/login");
+      return;
     }
     // if(!)
     // const res = toast.loading("Creating Order")
 
     const payload = {
-      price_amount : amountUsd,
-      pay_currency : token,
-      pay_amount : amountToken
-    }
+      price_amount: amountUsd,
+      pay_currency: token,
+      pay_amount: amountToken,
+    };
 
-    toast.promise(Axios.post("/buy", payload, {
-      headers : {
-        "Content-Type" : 'application/json',
-        "Authorization" :  `Bearer ${accessToken}`
-      }
-    }), {
-      pending  : "Creating Order",
-      error : "Error Creating order",
-      success  : "Order created successfully"
-    }).then((res) => {
-      setOrderDetail(res.data)
-      modalHandler()
-    }).catch((e) => {
-      console.log(e)
-    })
-  
+    toast
+      .promise(
+        Axios.post("/buy", payload, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }),
+        {
+          pending: "Creating Order",
+          error: "Error Creating order",
+          success: "Order created successfully",
+        }
+      )
+      .then((res) => {
+        setOrderDetail(res.data);
+        modalHandler();
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+
     // modalHandler controls the modal
-  }
-
-
+  };
 
   return (
     <section className={`section pt-[1rem]`}>
@@ -216,16 +215,13 @@ const Swap = ({modalHandler, setOrderDetail}) => {
                 <div
                   className={`${styles.inputContainer} rounded-tr-[0px] rounded-br-[0px] `}
                 >
-                  <p className={styles.text}>
-                    You Send
-                  </p>
+                  <p className={styles.text}>You Send</p>
                   <input
                     className={`${styles.input}`}
                     value={amountToken}
                     onChange={(e) => {
                       isUpdatingRef.current = "token";
                       setAmountToken(e.target.value);
-                      
                     }}
                   />
                 </div>
@@ -243,7 +239,7 @@ const Swap = ({modalHandler, setOrderDetail}) => {
                         setToken={setToken}
                         tokenStateHandler={tokenStateHandler}
                         closeDropdown={closeDropdown}
-                      isUpdatingRef = {isUpdatingRef}
+                        isUpdatingRef={isUpdatingRef}
                       />
                     )}
                   </div>
@@ -268,7 +264,7 @@ const Swap = ({modalHandler, setOrderDetail}) => {
                   />
                 </div>
 
-                <p className={`${styles.swapBtn}  `}>$STRANGER CAT</p>
+                <p className={`${styles.swapBtn}  `}>$STRANGER</p>
               </div>
             </div>
           </>
