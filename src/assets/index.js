@@ -26,6 +26,7 @@ import usdt from "./usdt.png";
 import tokenominsMobile from "./tokenominsMobile.svg";
 import strangerCat from "./strangerCat.png";
 import gif from "./gif.gif";
+import modalClose from "./modalClose.svg";
 
 export {
   bar,
@@ -56,4 +57,5 @@ export {
   heroImg,
   tokenominsMobile,
   gif,
+  modalClose,
 };

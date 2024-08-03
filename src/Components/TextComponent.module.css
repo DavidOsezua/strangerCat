@@ -18,3 +18,14 @@
 .title {
   font-weight: 600;
 }
+
+.aboutTitle{
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+@media screen and (min-width:1440px){
+  .aboutTitle{
+    font-size: 4rem;
+  }
+}

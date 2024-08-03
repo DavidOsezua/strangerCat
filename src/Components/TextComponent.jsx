@@ -5,6 +5,7 @@ import "../App.css";
 const TextComponent = () => {
   return (
     <section className={`section`}>
+      <h1 className={`${styles.aboutTitle}`}>About Stranger Cats</h1>
       <div className={`sectionContainer ${styles.textContainer}`}>
         <li className={styles.text}>
           Stranger Cats, the deriv you never knew you needed. Inspired by

@@ -10,6 +10,7 @@ import Transaction from "../Components/Transaction";
 import Modal from "../Components/Modal";
 import styles from "./Dashboard.module.css";
 import { Axios } from "../req";
+import { modalClose } from "../assets";
 
 const Dashboard = () => {
   const [modal, setModal] = useState(false);
@@ -98,6 +99,12 @@ const Dashboard = () => {
         <div className={styles.overlay}>
           <div className={styles.overlay2} onClick={InitialmodalHandler}></div>
           <div className={`${styles.walletContainer}`}>
+            <div
+              className="flex justify-end cursor-pointer"
+              onClick={InitialmodalHandler}
+            >
+              <img src={modalClose} />
+            </div>
             <p className="text-[0.8rem] w-[70%] mx-auto text-center ">
               Please ADD or UPDATE your SOLANA wallet address to receive your
               $STRANGER token
