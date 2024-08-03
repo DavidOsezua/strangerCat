@@ -291,7 +291,7 @@ export const TokenomicsDataDesktop = () => {
 const Tokenomics = () => {
   return (
     <section className={`section text-center`}>
-      <h1 className="text-[2rem]">Tokenomics</h1>
+      <h1 className={styles.tokenomicsTitle}>Tokenomics</h1>
 
       <div className={`sectionContainer  ${styles.tokenomicsContainer}`}>
         <div className={`${styles.mobile}`}>

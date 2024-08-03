@@ -67,7 +67,7 @@ const Hero = () => {
           <div className={styles.catsSecondColumn}>
             <img src={Logo} className="w-[100px]" />
             <div className={styles.textContent}>
-              <p>$0.000025 = 1 $STRANGER</p>
+              <p className={`${styles.innerText}`}>$0.000025 = 1 $STRANGER</p>
             </div>
 
             <div className="w-full">
@@ -77,7 +77,7 @@ const Hero = () => {
               
                 strokeColor="#D3D3D3"
               /> */}
-              <div className="h-[10px] max-w-[400px] rounded-md bg-[#fff]">
+              <div className="h-[10px] max-w-[full] rounded-md bg-[#fff]">
                 <div
                   style={{
                     height: "100%",
@@ -94,8 +94,12 @@ const Hero = () => {
             </div>
 
             <div className=" text-center">
-              <p>$STRANGER Tokens Remaining</p>
-              <p>{500_000_000_000 - totalSold}</p>
+              <p className={`${styles.innerText}`}>
+                $STRANGER Tokens Remaining
+              </p>
+              <p className={`${styles.innerText}`}>
+                {500_000_000_000 - totalSold}
+              </p>
             </div>
 
             <div className="flex gap-2">
@@ -115,7 +119,9 @@ const Hero = () => {
 
         <div className={styles.wrapper}>
           <div className="">
-            <h1 className="mb-[2rem] text-[2rem]">Deflationary Vision</h1>
+            <h1 className={`${styles.visionTitle} mb-[2rem]`}>
+              Deflationary Vision
+            </h1>
             <p className={`${styles.text}`}>
               We have four burn initiatives to constantly support value: Airdrop
               Burns, Secret Team Burns, Roadmap Burns and Community Burns.
@@ -129,7 +135,7 @@ const Hero = () => {
             {visionCard.map((visionCard) => (
               <div key={visionCard.title} className={styles.visionCard}>
                 <img src={visionCard.image} className="w-[50px]" />
-                <h3>{visionCard.title}</h3>
+                <h3 className={`${styles.visionCardTitle}`}>{visionCard.title}</h3>
               </div>
             ))}
           </div>

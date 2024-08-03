@@ -9,14 +9,14 @@ export const StepsMobile = () => {
 const Participation = () => {
   return (
     <section className={`section text-center`}>
-      <h1 className="text-[2rem]">How to participate in a burn</h1>
+      <h1 className={`${styles.participationtitle}`}>How to participate in a burn</h1>
 
       <div className={`sectionContainer  ${styles.stepsContainer}`}>
         <div className={`${styles.steps}`}>
           {steps.map((step) => (
             <div key={step.title} className={`${styles.stepGuide}`}>
               <p className={styles.title}> {step.title}</p>
-              <h1>{step.text}</h1>
+              <h1 className={styles.text}>{step.text}</h1>
             </div>
           ))}
         </div>

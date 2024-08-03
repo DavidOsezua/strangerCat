@@ -8,6 +8,10 @@
   display: none;
 }
 
+.tokenomicsTitle{
+  font-size: 1.5rem;
+}
+
 @media screen and (min-width: 80rem) {
   .mobile {
     display: none;
@@ -16,4 +20,10 @@
   .desktop {
     display: block;
   }
+}
+
+@media screen and (min-width: 1440px) {
+.tokenomicsTitle{
+  font-size: 4rem;
+}
 }

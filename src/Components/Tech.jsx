@@ -1,6 +1,7 @@
 import React from "react";
 import { product } from "../Data/data";
-import styles from './Tech.module.css'
+import styles from "./Tech.module.css";
+import "../App.css";
 
 const Tech = () => {
   return (
@@ -9,7 +10,7 @@ const Tech = () => {
         <div className={`${styles.wrapper}`}>
           {product.map((oneProduct, i) => (
             <div key={i} className={`${styles.card}`}>
-              <img src={oneProduct.image} className="w-[40px]" />
+              <img src={oneProduct.image} className="w-[70px]" />
 
               <p className={`${styles.title}`}>{oneProduct.productName}</p>
             </div>

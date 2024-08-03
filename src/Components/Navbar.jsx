@@ -28,10 +28,7 @@ const Navbar = () => {
           {/********************* Menu close button *******************/}
           <img src={close} onClick={toggleHandler} className={styles.toggle} />
 
-          <div className={styles.mobileBtn}>
-            <button>checking</button>
-            {/* <Button styles={styles.btn}>Connect Wallet</Button> */}
-          </div>
+        
 
           {/********************* Menu Lists *******************/}
 

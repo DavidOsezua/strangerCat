@@ -1,5 +1,5 @@
 import bar from "./bar.svg";
-import Logo from "./Logo.png";
+import Logo from "./Logo.svg";
 import close from "./close.svg";
 import usdc from "./usdc.svg";
 import sol from "./sol.svg";
@@ -25,6 +25,7 @@ import dexTools from "./dexTools.png";
 import usdt from "./usdt.png";
 import tokenominsMobile from "./tokenominsMobile.svg";
 import strangerCat from "./strangerCat.png";
+import gif from "./gif.mp4";
 
 export {
   bar,
@@ -54,4 +55,5 @@ export {
   arrowDown,
   heroImg,
   tokenominsMobile,
+  gif,
 };

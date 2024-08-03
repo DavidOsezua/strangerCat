@@ -106,15 +106,12 @@
 .navItems {
   position: relative;
   color: #fff;
+  font-family: "Jomhuria", serif;
+font-size: large;
+  font-style: normal;
+  color: #fff;
 }
-.navItems :global(.active)::before {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 2px;
-  content: "";
-  background: #d99a26;
-}
+
 .mobileBtn {
   padding-right: 1rem;
 }
@@ -125,12 +122,7 @@
   font-weight: 500;
 }
 
-.pro {
-  color: #fff;
-  background-color: #d99a26;
-  border-radius: 5px;
-  padding: 5px;
-}
+
 
 .btn {
   padding: 7px 10px;
@@ -185,7 +177,7 @@
 
   .navItems {
     margin-right: 1.5rem;
-    font-size: 0.9rem;
+    font-size: 1.4rem;
   }
   .navLinks,
   .navBtn {
@@ -217,4 +209,11 @@
   /* .navItems {
     margin-right: 1rem;
   } */
+}
+
+
+@media screen and (min-width: 1440px) {
+  .navItems{
+    font-size: 2.4rem;
+  }
 }

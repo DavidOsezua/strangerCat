@@ -1,7 +1,7 @@
 import React from "react";
 import "../App.css";
 import styles from "./Vision.module.css";
-import { strangerCat } from "../assets";
+import { gif, strangerCat } from "../assets";
 
 const Vision = () => {
   return (
@@ -36,7 +36,9 @@ const Vision = () => {
           </article>
         </div>
 
-        <img src={strangerCat} className={styles.img} />
+        <video autoPlay muted loop>
+          <source src={gif} type="video/mp4" />
+        </video>
       </div>
     </section>
   );

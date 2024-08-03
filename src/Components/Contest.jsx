@@ -7,7 +7,9 @@ const Contest = () => {
   return (
     <section className={`section`}>
       <div className="text-center text-[#fff]">
-        <h1 className="pb-[2rem] text-[2rem] ">MEME CONTEST HOW IT WORKS</h1>
+        <h1 className={`${styles.contestTitle} pb-[2rem]`}>
+          MEME CONTEST HOW IT WORKS
+        </h1>
 
         <p className="max-w-[1000px] mx-auto">
           Create your meme, send through our portal to enter competition. The
@@ -19,7 +21,7 @@ const Contest = () => {
       <div className={`sectionContainer`}>
         <div className={styles.cats}>
           {cats.map((cat) => (
-            <img src={cat.image} key={cat.image}  className={styles.cat}/>
+            <img src={cat.image} key={cat.image} className={styles.cat} />
           ))}
         </div>
       </div>
