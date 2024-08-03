@@ -7,10 +7,10 @@ const TextComponent = () => {
     <section className={`section`}>
       <h1 className={`${styles.aboutTitle}`}>About Stranger Cats</h1>
       <div className={`sectionContainer ${styles.textContainer}`}>
-        <li className={styles.text}>
+        <p className={styles.text}>
           Stranger Cats, the deriv you never knew you needed. Inspired by
           Stranger Things.
-        </li>
+        </p>
 
         <div>
           <p className={styles.title}>The ticker is $STRANGER</p>

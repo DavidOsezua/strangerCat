@@ -9,7 +9,7 @@
   border: 4px solid #ff1515;
 }
 .contestTitle {
-  font-size: 2rem;
+  font-size: 2.3rem;
 }
 @media screen and (min-width: 80rem) {
   .cats {
@@ -19,6 +19,10 @@
 
   .cat {
     max-width: 100%;
+  }
+
+  .contestitle {
+    font-size: 3rem;
   }
 }
 

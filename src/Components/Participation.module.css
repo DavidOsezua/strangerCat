@@ -48,11 +48,22 @@
   padding: 1rem;
 }
 .participationtitle {
-  font-size: 1.5rem;
-}
+  font-size: 2rem;
+}.text {
+    font-size: 1.7rem;
+  }
+
 @media screen and (min-width: 80rem) {
   .steps {
     flex-direction: row;
+  }
+
+  .participationtitle {
+  font-size: 3rem;
+}
+
+.text {
+    font-size: 2rem;
   }
 }
 

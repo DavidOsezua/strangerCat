@@ -111,8 +111,8 @@ const SignUp = () => {
 
         <div className="text-[#fff] text-[0.6rem] ">
           <p className="pb-[0.7rem]">
-            Sign me up to receive email notification from us with deals, sales
-            and updates
+            Sign me up to receive email notification from us about updates on
+            the presale and wen launch!
           </p>
         </div>
 

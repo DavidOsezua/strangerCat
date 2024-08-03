@@ -83,8 +83,12 @@
 }
 
 .visionTitle {
-  font-size: 2rem;
+  font-size: 3rem;
 }
+
+  .visionCardTitle {
+    font-size: 1.8rem;
+  }
 @media screen and (min-width: 80rem) {
   .wrapper {
     flex-direction: row;
