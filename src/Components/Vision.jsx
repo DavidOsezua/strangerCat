@@ -35,7 +35,9 @@ const Vision = () => {
             </li>
           </article>
         </div>
-        <img src={gif} />
+        <video autoPlay muted loop>
+          <source src={gif} type="video/mp4" />
+        </video>
       </div>
     </section>
   );
