@@ -9,7 +9,6 @@ const Vision = () => {
       <div className={`sectionContainer ${styles.visionContainer}`}>
         <div className={`${styles.contentContainer}`}>
           <h1 className={`${styles.title}`}>Long-term Vision</h1>
-
           <article className={`${styles.text}`}>
             <li>
               Continuous Development: Regular updates and expansions to the
@@ -34,10 +33,13 @@ const Vision = () => {
               environmental impact.
             </li>
           </article>
+          qwas
         </div>
-        <video autoPlay muted loop>
+        {/* <video autoPlay muted loop>
           <source src={gif} type="video/mp4" />
-        </video>
+        </video> */}
+
+        <img src={gif} />
       </div>
     </section>
   );
