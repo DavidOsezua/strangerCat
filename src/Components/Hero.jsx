@@ -94,12 +94,8 @@ const Hero = () => {
             </div>
 
             <div className=" text-center">
-              <p className={`${styles.innerText}`}>
-                $STRANGER Tokens Remaining
-              </p>
-              <p className={`${styles.innerText}`}>
-                {500_000_000_000 - totalSold}
-              </p>
+              <p>$STRANGER Tokens Remaining</p>
+              <p>{(500_000_000_000 - totalSold).toLocaleString()}</p>
             </div>
 
             <div className="flex gap-2">
