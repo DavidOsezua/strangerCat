@@ -26,7 +26,7 @@ const HomePage = () => {
       <Contest />
       <Tech />
       <Disclaimer />
-      <Timer/>
+      {/* <Timer/> */}
     </>
   );
 };
