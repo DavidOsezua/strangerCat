@@ -27,6 +27,7 @@ import tokenominsMobile from "./tokenominsMobile.svg";
 import strangerCat from "./strangerCat.png";
 import gif from "./gif.gif";
 import modalClose from "./modalClose.svg";
+import twoDots from "./twoDots.svg"
 
 export {
   bar,
@@ -58,4 +59,5 @@ export {
   tokenominsMobile,
   gif,
   modalClose,
+  twoDots
 };

@@ -17,7 +17,8 @@ const TextComponent = () => {
           <p className={styles.text}>
             Step into the enchanting world of Stranger Cats, where the playful
             allure of meme coins meets the electrifying nostalgia of Stranger
-            Things. Built on the super-speedy Solana network, **$STRANGER**
+            Things. Built on the super-speedy Solana network,{" "}
+            <span className="font-extrabold text-[1.2rem]"> $STRANGER </span>
             isn't just a meme coin; it’s a dynamic community of crypto
             enthusiasts ready for adventure.
           </p>
@@ -39,7 +40,11 @@ const TextComponent = () => {
             <p className={styles.text}>
               Hold Stranger Cats tokens and unlock the potential for regular
               airdrops. The more you hold, the more you earn. Stay tuned for
-              *$STRANGER* rewards that will keep you multiplying pawfits!{" "}
+              <span className="font-extrabold text-[1.2rem]">
+                {" "}
+                $STRANGER
+              </span>{" "}
+              rewards that will keep you multiplying pawfits!{" "}
             </p>
           </div>
 

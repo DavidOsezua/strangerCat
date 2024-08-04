@@ -12,6 +12,7 @@ import {
   Vision,
 } from "../Components";
 import TextComponent from "../Components/TextComponent";
+import Timer from "../Components/Timer";
 
 const HomePage = () => {
   return (
@@ -25,6 +26,7 @@ const HomePage = () => {
       <Contest />
       <Tech />
       <Disclaimer />
+      <Timer/>
     </>
   );
 };
